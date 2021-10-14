@@ -1,0 +1,46 @@
+@import "./_variables.scss";
+
+
+body{
+    box-sizing: border-box;
+    font-family: $text_font;
+    background-color: $background_fallback;
+    background-color: $main_background_color;
+    background-image: url("/static/portfolioCore/images/backgroundMain.jpg");
+    color: $text_fallback_color;
+    color: $main_foreground_color;
+    background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: $header_font;
+}
+
+
+
+.spacer-lg{
+    height: 120px;
+}
+
+.active{
+    font-weight: bold;
+    color: red;
+    span{
+        margin-left: 10px;
+    }
+}
+
+.footerHr{
+    width: 30%;
+    margin: auto;
+}
+
+.footerLink{
+    display: block;
+    padding-top: 10px;
+}
+.navlist{
+    list-style: none;
+}
+
+

@@ -1,0 +1,43 @@
+
+
+
+@font-face{
+    font-family: Baumans;
+    src: url("/static/portfolioCore/fonts/Baumans-Regular.ttf") format("truetype");
+}
+// text font
+@font-face{
+    font-family: Quicksand;
+    src: url("/static/portfolioCore/fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+@import "./variables.scss";
+@import "./custom.scss";
+@import "./common.scss";
+
+
+#brianWrapper {
+  width: 250px;
+}
+  
+@media only screen and (min-width: 600px) {
+    #brianWrapper {
+      width: 300px;
+    }
+ }
+  
+@media only screen and (min-width: 1279px) {
+    #brianWrapper {
+      width: 450px;
+    }
+}
+  
+@media only screen and (min-width: 1979px) {
+    #brianWrapper {
+      width: 600px;
+    }
+}
+  

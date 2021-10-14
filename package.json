@@ -1,6 +1,6 @@
 {
   "name": "my-portfolio",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "My-portfolio",
   "author": "linre-90",
@@ -15,11 +15,16 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
+    "dotenv": "^10.0.0",
     "gatsby": "^3.13.0",
-    "gatsby-plugin-sass": "^4.13.0",
+    "gatsby-plugin-fontawesome-css": "^1.1.0",
     "gatsby-plugin-sitemap": "^4.9.0",
+    "gatsby-source-mongodb": "^3.14.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "sass": "^1.39.2"
+    "uuid": "^8.3.2"
   }
 }
