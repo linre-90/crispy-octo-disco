@@ -10,24 +10,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-fontawesome-css`,
+    `gatsby-transformer-json`,
     {
-      resolve: `gatsby-source-mongodb`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        dbName: `Brian`,
-        collection: ["keywords", "popular"],
-        server: {
-          address: process.env.DATABASE_URL,
-          port: process.env.DATABASE_PORT
-        },
-        auth: {
-          user: process.env.DATABASE_USER,
-          password: process.env.DATABASE_PASSWORD
-        },
-        extraParams: {
-          ssl: true,
-          authSource: 'admin',
-          retryWrites: true
-        },
+        name: `data`,
+        path: `${__dirname}/src/data/`,
+        ignore: [`**/\.*`], // ignore files starting with a dot
       },
-    }],
+    }
+  ]
 };

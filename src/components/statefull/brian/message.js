@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Message visible in ui. Conditional icon rendering for user and robot...
 const Message = (props) => {
-  let layout = "card mb-3 ";
+  let layout = "card mb-3 border p-2 ";
 
   if (!props.human) {
-    layout += "ms-5";
+    layout += "bg-warning ms-5 border-warning rounded";
   } else {
-    layout += "me-5";
+    layout += "bg-dark me-5 border-dark rounded";
   }
 
   return (
@@ -26,7 +26,7 @@ const Message = (props) => {
           <div className="card-body">
             <p className="card-text">
               {props.text}{" "}
-              {props.linkUrl != null && (
+              {props.linkUrl != "null" && (
                 <a href={props.linkUrl}>
                   <i>link</i>
                 </a>

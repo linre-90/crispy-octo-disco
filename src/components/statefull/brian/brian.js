@@ -1,60 +1,67 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Suggestion from "./suggestion";
 import BrianInterface from "./brianInterface";
 import Message from "./message";
 import { v4 as uuidv4 } from "uuid";
-import { faRobot } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {useStaticQuery, graphql } from "gatsby";
 
-// Main brian component, can be thinked as Main function in c#...
 const BrianBot = () => {
     // state declaratioins
     const [input, setInput] = useState("");
     const [suggests, setSuggests] = useState([]);
     const [keywords, setKeywords] = useState([]);
     const [messages, setMessages] = useState([]);
+    const messageEnd = useRef();
 
     // graphql query
     const data = useStaticQuery(
         graphql`
-        query {
-            keywords: allMongodbBrianKeywords {
+        query{
+            keywords: allDataJson {
                 edges {
                     node {
-                        name
-                        url
+                        keywords{
+                            name
+                            url
+                        }
                     }
                 }
             }
-            popular: allMongodbBrianPopular {
+            popular: allDataJson {
                 edges {
                     node {
-                        linkUrl
-                        text
-                        human
+                        popular{
+                            linkUrl
+                            text
+                            human
+                        }
                     }
                 }
             }
         }
         `
     );
-
     useEffect(() => {
-        // create keywords from database
+        // create keywords from json file
         let initialKeywords = []
-        data.keywords.edges.forEach(element => {
-            initialKeywords.push({name: element.node.name, url:element.node.url});
+        data.keywords.edges[0].node.keywords.forEach(node => {
+            initialKeywords.push({name: node.name, url:node.url});
         });
-        // create messages from database
+
+        // create messages from json file
         let initialMessages = [];
-        data.popular.edges.forEach(element => {
-            console.log(element.node.text);
-            initialMessages.push({linkUrl: element.node.linkUrl, text:element.node.text, human:element.node.human});
+        data.popular.edges[0].node.popular.forEach(node => {
+            initialMessages.push({linkUrl: node.linkUrl, text:node.text, human:node.human});
         });
+
         setKeywords(initialKeywords);
         setMessages(initialMessages);
     }, []);
+
+    useEffect(() => {
+        // scrolls new message to view
+        messageEnd.current?.scrollIntoView({ behavior: "smooth" })
+    },[messages]);
 
 
     // Updates brians suggestions
@@ -88,23 +95,11 @@ const BrianBot = () => {
     };
 
     return (
-        <div className="bg-secondary">
-            <button
-                className="btn btn-primary mb-0 mt-0"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseExample"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-            >
-                <h5>
-                    <FontAwesomeIcon icon={faRobot}></FontAwesomeIcon>
-                </h5>
-            </button>
+        <div className="bg-secondary rounded p-3 collapse" id="collapseExample">
             <div className="collapse" id="collapseExample">
                 <div>
                     {/* message field */}
-                    <div>
+                    <div className="scrollField">
                         {messages.map((e) => {
                             return (
                                 <Message
@@ -115,7 +110,9 @@ const BrianBot = () => {
                                 ></Message>
                             );
                         })}
+                        <div ref={messageEnd}></div>{/* Dummy end of chat div*/}
                     </div>
+                    <hr></hr>
 
                     {/* Autocomplete result*/}
                     <div>
