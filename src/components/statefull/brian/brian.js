@@ -38,14 +38,14 @@ const BrianBot = () => {
         `
     );
     useEffect(() => {
-        // create keywords from json file
+        // create keywords from mongo
         let initialKeywords = []
         data.keywords.edges.forEach(element => {
             console.log(element.node);
             initialKeywords.push({name: element.node.name, url:element.node.url});
         });
 
-        // create messages from json file
+        // create messages from mongo
         let initialMessages = [];
         data.popular.edges.forEach(element => {
             initialMessages.push({linkUrl: element.node.linkUrl, text:element.node.text, human:element.node.human});
