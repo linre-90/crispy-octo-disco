@@ -26,7 +26,7 @@ const Message = (props) => {
           <div className="card-body">
             <p className="card-text">
               {props.text}{" "}
-              {props.linkUrl != "null" && (
+              {props.linkUrl != null && (
                 <a href={props.linkUrl}>
                   <i>link</i>
                 </a>

@@ -1,9 +1,0 @@
-{
-    "keywords": [
-        {"name": "react", "url":"#"},
-        {"name": "abba", "url":"#"}
-    ],
-    "popular":[
-        {"linkUrl": "null", "text": "Hello! I'm Brian, a robot helper for this site. Type something and i will try to search it.", "human": false}
-    ]
-}

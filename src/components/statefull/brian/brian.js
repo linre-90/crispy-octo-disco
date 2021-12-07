@@ -17,24 +17,20 @@ const BrianBot = () => {
     const data = useStaticQuery(
         graphql`
         query{
-            keywords: allDataJson {
+            keywords: allMongodbBrianKeywords {
                 edges {
                     node {
-                        keywords{
-                            name
-                            url
-                        }
+                        name
+                        url
                     }
                 }
             }
-            popular: allDataJson {
+            popular: allMongodbBrianPopular {
                 edges {
                     node {
-                        popular{
-                            linkUrl
-                            text
-                            human
-                        }
+                        linkUrl
+                        text
+                        human
                     }
                 }
             }
@@ -44,14 +40,15 @@ const BrianBot = () => {
     useEffect(() => {
         // create keywords from json file
         let initialKeywords = []
-        data.keywords.edges[0].node.keywords.forEach(node => {
-            initialKeywords.push({name: node.name, url:node.url});
+        data.keywords.edges.forEach(element => {
+            console.log(element.node);
+            initialKeywords.push({name: element.node.name, url:element.node.url});
         });
 
         // create messages from json file
         let initialMessages = [];
-        data.popular.edges[0].node.popular.forEach(node => {
-            initialMessages.push({linkUrl: node.linkUrl, text:node.text, human:node.human});
+        data.popular.edges.forEach(element => {
+            initialMessages.push({linkUrl: element.node.linkUrl, text:element.node.text, human:element.node.human});
         });
 
         setKeywords(initialKeywords);
