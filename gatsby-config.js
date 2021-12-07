@@ -16,8 +16,8 @@ module.exports = {
         dbName: "brian",
         collection:["keywords", "popular"],
         server:{
-          address:"localhost",
-          port:8001
+          address:process.env.DBURL,
+          port:process.env.DBPORT
         },
         auth:{user: process.env.MONGOREADUSER, password:process.env.MONGOREADPASS},
         extraParams:{
