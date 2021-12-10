@@ -10,6 +10,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-fontawesome-css`,
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-mongodb",
       options:{

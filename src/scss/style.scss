@@ -62,7 +62,6 @@ body{
   font-family: $text_font;
   background-color: $background_fallback;
   background-color: $main_background_color;
-  //background-image: url("/static/portfolioCore/images/backgroundMain.jpg");
   color: $text_fallback_color;
   color: $main_foreground_color;
   background-repeat: no-repeat;
@@ -73,6 +72,15 @@ h1, h2, h3, h4, h5, h6{
 }
 
 // by classes ----->
+
+.mobile_bgr{
+  position: fixed;
+  left: -50%;
+  top: 0;
+  z-index: -1;
+  filter: brightness(50%);
+}
+
 .scrollField{
   overflow-y: scroll;
   height: 350px;
@@ -111,7 +119,7 @@ h1, h2, h3, h4, h5, h6{
 
 .chatbotButton{
   position: fixed;
-  right: 10px;
+  right: 13px;
   bottom: 10px;
   z-index: 99;
 }
