@@ -1,37 +1,158 @@
-
-
-/*
-@font-face{
-    font-family: Baumans;
-    src: url("/static/portfolioCore/fonts/Baumans-Regular.ttf") format("truetype");
-}
-// text font
-@font-face{
-    font-family: Quicksand;
-    src: url("/static/portfolioCore/fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
-}
-*/
+// Fonts
 @import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-@import "./variables.scss";
-@import "./custom.scss";
-@import "./common.scss";
+//bootstrap functions
+@import "./bootstrap/functions.scss";
+
+// **** Colors ****
+$background_fallback: black;
+$text_fallback_color: white;
+
+$main_background_color: #080708;
+$main_foreground_color: #DF2935;
+$main_power_color_blue: #3772FF;
+$main_power_color_yellow: #FDCA40;
+$main_power_color_silver: #E6E8E6;
+
+// **** fonts ****
+$header_font: Baumans, cursive;
+$text_font: Quicksand, sans serif;
 
 
+// **** override bootstrap variables ****
+$navbar-dark-brand-color: $main_foreground_color;
+$navbar-dark-brand-hover-color: $navbar-dark-brand-color;
+
+$nav-link-color:$main_power_color_silver;
+$nav-link-hover-color: $main_power_color_yellow;
+$form-text-color: $main_power_color_silver;
+
+$primary:    $main_foreground_color;
+$secondary:  $main_power_color_yellow;
+$info:       $main_power_color_blue;
+$warning:    $main_power_color_silver;
+$dark:       $main_background_color;
+$body-bg: $dark;
+
+
+// required bootstrap imports ------>
+@import "./bootstrap/variables";
+@import "./bootstrap/mixins";
+@import "./bootstrap/root";
+
+// Optional "cherry picked as needed" bootstrap imports ------>
+@import "./bootstrap/utilities";
+@import "./bootstrap/navbar";
+@import "./bootstrap/nav";
+@import "./bootstrap/containers";
+@import "./bootstrap/buttons";
+@import "./bootstrap/transitions";
+@import "./bootstrap/grid";
+@import "./bootstrap/reboot";
+@import "./bootstrap/list-group";
+@import "./bootstrap/forms/input-group";
+
+@import "./bootstrap//utilities/api"; // this must be last?
+
+// **** own handwritten css stuff + possible bootstrap override classes etc. ****
+//by tag ----->
+body{
+  box-sizing: border-box;
+  font-family: $text_font;
+  background-color: $background_fallback;
+  background-color: $main_background_color;
+  //background-image: url("/static/portfolioCore/images/backgroundMain.jpg");
+  color: $text_fallback_color;
+  color: $main_foreground_color;
+  background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $header_font;
+}
+
+// by classes ----->
+.scrollField{
+  overflow-y: scroll;
+  height: 350px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollField::-webkit-scrollbar { /* Hide scrollbar for Chrome, Safari and Opera */
+  display: none;
+}
+
+.spacer-lg{
+  height: 120px;
+}
+
+.active{
+  font-weight: bold;
+  color: red;
+  span{
+      margin-left: 10px;
+  }
+}
+
+.footerHr{
+  width: 30%;
+  margin: auto;
+}
+
+.footerLink{
+  display: block;
+  padding-top: 10px;
+}
+.navlist{
+  list-style: none;
+}
+
+.chatbotButton{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 99;
+}
+
+.backDrop{
+  background-color: $main_background_color;
+  opacity: 80%;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  z-index: 80;
+}
+
+// by id ----->
 #brianWrapper {
   position: fixed;
   top: 0px;
   right: 0px;
   margin-top: 20px;
-  width: 80%;
+  width: 95%;
   z-index: 97;
 }
   
+// media queries ----->
+
+@media only screen and (min-width: 750px) {
+  #brianWrapper {
+    width: 65%;
+  }
+}
+
 @media only screen and (min-width: 1200px) {
     #brianWrapper {
       width: 50%;
     }
 }
-  
-  
+
+@media only screen and (min-width: 1400px) {
+  #brianWrapper {
+    width: 650px;
+  }
+}
