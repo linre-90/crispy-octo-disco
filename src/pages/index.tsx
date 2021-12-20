@@ -18,9 +18,10 @@ const IndexPage: React.FC = (): React.ReactElement => {
 
 	const navData: navMenuLinkData[] = [
 		{ text: "Home", active: true, url: "#" },
-		{ text: "Contact", active: false, url: "#" },
-		{ text: "info", active: false, url: "#" },
-		{ text: "Work", active: false, url: "#" }
+		{ text: "Contact", active: false, url: "/contact" },
+		{ text: "Info", active: false, url: "/info" },
+		{ text: "Portfolio", active: false, url: "/portfolio" },
+		{ text: "Blog", active:false, url:"/blog"}
 	];
 
 	const chatbotref = React.useRef(null);
@@ -28,10 +29,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 
 	return (
 		<div className="container mt-5">
-			<StaticImage className="mobile_bgr" src="../images/mobile_bgr.jpg" alt="Mobile industrial background image" placeholder="blurred"></StaticImage>
-			{/* Remember to add thanks for Patrick Tomasso and unsplash for bgr image */}
-			{console.log("Remember to add thanks for Patrick Tomasso and unsplash for bgr image")}
-
+			<StaticImage className="mobile_bgr" src="../images/mobile/home.jpg" alt="Mobile industrial background image" placeholder="blurred"></StaticImage>
 			{backdropActive && <Backdrop></Backdrop>}
 			{/* bootstrap javascript and popper */}
 			<Helmet>
