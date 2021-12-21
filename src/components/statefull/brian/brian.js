@@ -41,7 +41,6 @@ const BrianBot = () => {
         // create keywords from mongo
         let initialKeywords = []
         data.keywords.edges.forEach(element => {
-            console.log(element.node);
             initialKeywords.push({name: element.node.name, url:element.node.url});
         });
 

@@ -1,7 +1,7 @@
 import * as React from "react"
 import Headline from "../components/stateless/headline/headline";
 import CTA from "../components/stateless/cta/callToAction";
-import { NavMenu, navMenuLinkData } from "../components/stateless/navMenu/navMenu";
+import { NavMenu } from "../components/stateless/navMenu/navMenu";
 import BrianBot from "../components/statefull/brian/brian";
 import { faRobot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,21 +9,14 @@ import Backdrop from "../components/stateless/backdrop/Backdrop";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { StaticImage } from "gatsby-plugin-image";
+import Footer from "../components/stateless/footer/footer";
+import { getAddresses } from "../Addresses";
 
 /**
  * Index page markup
  * @returns react component
  */
 const IndexPage: React.FC = (): React.ReactElement => {
-
-	const navData: navMenuLinkData[] = [
-		{ text: "Home", active: true, url: "#" },
-		{ text: "Contact", active: false, url: "/contact" },
-		{ text: "Info", active: false, url: "/info" },
-		{ text: "Portfolio", active: false, url: "/portfolio" },
-		{ text: "Blog", active:false, url:"/blog"}
-	];
-
 	const chatbotref = React.useRef(null);
 	const [backdropActive, setbackdropActive] = useState(false);
 
@@ -36,7 +29,8 @@ const IndexPage: React.FC = (): React.ReactElement => {
 				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossOrigin="anonymous"></script>
 			</Helmet>
 
-			<NavMenu header="Navigation" innerHeader="Pages" navLinks={navData}></NavMenu>
+			<NavMenu header="Navigation" innerHeader="Pages" navLinks={ getAddresses(0) }></NavMenu>
+
 			<div className="bg-dark bg-opacity-75 p-3 rounded">
 				<div className="row">
 					<Headline text="My portfolio" hSize={1}></Headline>
@@ -59,6 +53,8 @@ const IndexPage: React.FC = (): React.ReactElement => {
 				<div ref={chatbotref}></div>
 			</div>
 
+			<Footer></Footer>
+
 			<div className="chatbotButton">
 				<button
 					className="btn btn-primary btn-floating mb-0 mt-0"
@@ -77,6 +73,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 					</h5>
 				</button>
 			</div>
+			
 		</div>
 	)
 }

@@ -1,6 +1,8 @@
 import React, { ReactElement } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
+import {Link} from "gatsby"
+import {navMenuLinkData} from "../../../Addresses";
 
 /**
  * Navmenu prop types
@@ -10,19 +12,6 @@ interface navMenuProps{
     innerHeader: string,
     navLinks: Array<navMenuLinkData>
 }
-
-/**
- * Data to pass for single link
- * @param text - Link text
- * @param url - Link url
- * @param active - Is this the active page?
- */
-type navMenuLinkData = {
-    text: string,
-    url: string,
-    active: boolean,
-}
-
 
 /**
  * Nav menu component for site
@@ -39,14 +28,14 @@ const NavMenu: React.FC<navMenuProps> = (props: navMenuProps): ReactElement => {
                         {props.navLinks.map((x) => {
                             return(
                             <li key={x.text} className="nav-item">
-                            <a className={`nav-link ${x.active? "active": ""}`} href={x.url}>
+                            <Link className={`nav-link ${x.active? "active": ""}`} to={x.url}> 
                                 {x.text}
-                                {x.active == true &&
-                                    <span>
-                                    <FontAwesomeIcon icon={faCheckSquare}></FontAwesomeIcon>
-                                </span> 
-                                }
-                            </a>
+                                    {x.active == true &&
+                                        <span>
+                                        <FontAwesomeIcon icon={faCheckSquare}></FontAwesomeIcon>
+                                    </span> 
+                                    }
+                             </Link>
                         </li>)
                         })}
                     </ul>
