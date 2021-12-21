@@ -1,9 +1,17 @@
-import React, { Component, ReactElement } from "react";
+import React, { ReactElement, FC } from "react";
+import {NotReady} from "../components/stateless/NotReady/notReady";
 
-const Blog:React.FC = ():React.ReactElement => {
-    return(
-        <div>Blog page</div>
-    )
+
+
+const Blog:FC = ():ReactElement => {
+    const componentReady = false;
+
+    if(componentReady){
+        return <div></div>
+    }
+    else{
+        return <NotReady pageName="Blog"></NotReady>;
+    }
 }
 
 export default Blog;
