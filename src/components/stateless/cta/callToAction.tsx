@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import {Link} from "gatsby";
 
 /**
  * Call to action props
@@ -17,9 +18,9 @@ interface CTAProps{
 const cta: React.FC<CTAProps> = (props: CTAProps): ReactElement => {
     return(
         <div className="col">
-            <a type="button" className="btn btn-outline-primary btn-lg" href={props.url}>
+            <Link type="button" className="btn btn-outline-primary btn-lg" to={props.url}>
                 {props.text}
-            </a>
+            </Link>
         </div>
     );
 }

@@ -91,40 +91,38 @@ const BrianBot = () => {
     };
 
     return (
-        <div className="bg-secondary rounded p-3 collapse" id="collapseExample">
-            <div className="collapse" id="collapseExample">
+        <div className="bg-secondary rounded p-3" id="">
+            <div>
+                {/* message field */}
+                <div className="scrollField">
+                    {messages.map((e) => {
+                        return (
+                            <Message
+                                key={uuidv4()}
+                                text={e.text}
+                                linkUrl={e.linkUrl}
+                                human={e.human}
+                            ></Message>
+                        );
+                    })}
+                    <div ref={messageEnd}></div>{/* Dummy end of chat div*/}
+                </div>
+                <hr></hr>
+
+                {/* Autocomplete result*/}
                 <div>
-                    {/* message field */}
-                    <div className="scrollField">
-                        {messages.map((e) => {
-                            return (
-                                <Message
-                                    key={uuidv4()}
-                                    text={e.text}
-                                    linkUrl={e.linkUrl}
-                                    human={e.human}
-                                ></Message>
-                            );
-                        })}
-                        <div ref={messageEnd}></div>{/* Dummy end of chat div*/}
-                    </div>
-                    <hr></hr>
+                    <Suggestion dataList={suggests}></Suggestion>
+                </div>
 
-                    {/* Autocomplete result*/}
-                    <div>
-                        <Suggestion dataList={suggests}></Suggestion>
-                    </div>
-
-                    {/* Brians userinterface */}
-                    <div>
-                        <BrianInterface
-                            inputValue={input}
-                            setInputFunction={setInput}
-                            updateSuggestState={() => updateSuggested(input)}
-                            sendMsg={sendMessage}
-                            suggestionList={suggests}
-                        ></BrianInterface>
-                    </div>
+                {/* Brians userinterface */}
+                <div>
+                    <BrianInterface
+                        inputValue={input}
+                        setInputFunction={setInput}
+                        updateSuggestState={() => updateSuggested(input)}
+                        sendMsg={sendMessage}
+                        suggestionList={suggests}
+                    ></BrianInterface>
                 </div>
             </div>
         </div>

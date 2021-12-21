@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import { StaticImage } from "gatsby-plugin-image";
 import Footer from "../components/stateless/footer/footer";
 import { getAddresses } from "../Addresses";
+import { useRef } from "react";
 
 /**
  * Index page markup
@@ -22,12 +23,18 @@ const IndexPage: React.FC = (): React.ReactElement => {
 
 	return (
 		<div className="container mt-5">
-			<StaticImage className="mobile_bgr" src="../images/mobile/home.jpg" alt="Mobile industrial background image" placeholder="blurred"></StaticImage>
+			<StaticImage className="mobile_bgr d-md-none" src="../images/mobile/home.jpg" alt="Mobile industrial background image" placeholder="blurred"></StaticImage>
 			{backdropActive && <Backdrop></Backdrop>}
 			{/* bootstrap javascript and popper */}
 			<Helmet>
 				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossOrigin="anonymous"></script>
 			</Helmet>
+			<Helmet>
+            <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            />
+            </Helmet>
 
 			<NavMenu header="Navigation" innerHeader="Pages" navLinks={ getAddresses(0) }></NavMenu>
 
@@ -48,7 +55,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 				</div>
 			</div>
 
-			<div id="brianWrapper">
+			<div className={backdropActive ? "animate__animated animate__backInUp" : "animate__animated animate__backOutDown"}  id="brianWrapper">
 				<BrianBot></BrianBot>
 				<div ref={chatbotref}></div>
 			</div>
@@ -59,10 +66,6 @@ const IndexPage: React.FC = (): React.ReactElement => {
 				<button
 					className="btn btn-primary btn-floating mb-0 mt-0"
 					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#collapseExample"
-					aria-expanded="false"
-					aria-controls="collapseExample"
 					onClick={() => {
 						chatbotref.current?.scrollIntoView({ behavior: "smooth" });
 						setbackdropActive(!backdropActive);
