@@ -24,7 +24,7 @@ const Creators:FC = ():ReactElement => {
         <div>
             {
                 creatorData.allMongodbCreatorsImage.edges.map((node:any) => {
-                    return <p key={node.node.name} >- <a href={node.node.url}>{node.node.name}</a></p>
+                    return <p key={node.node.name} >- <a href={node.node.url}>{node.node.name}</a> -</p>
                 })
             }
         </div>

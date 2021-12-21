@@ -24,17 +24,28 @@ const IndexPage: React.FC = (): React.ReactElement => {
 	const [backdropActive, setbackdropActive] = useState(false);
 	
 	// Brian animation
-	const [revealBrian, setrevealBrian] = useState(false);
-	const brianTimeline = useRef(null);
 	const brianRef = useRef(null);
 	useEffect(() => {
 		if(backdropActive){
-			gsap.to(brianRef.current, {opacity: "1", display: "block", top: 0});
+			gsap.timeline()
+			.to(brianRef.current, { startAt:{scale:"0.75", top: "200px"}, opacity: "1", display: "block", top: 0})
+			.to(brianRef.current, { scale: "1"});
 		}
 		if(!backdropActive){
-			gsap.to(brianRef.current, {opacity: "0", display: "none", top: "200px"});
+			gsap.timeline()
+			.to(brianRef.current, {scale: "0.9"})
+			.to(brianRef.current, {opacity: "0", display: "none", top: "200px"});
 		}
-	}, [revealBrian])
+	}, [backdropActive])
+
+	// brian button animation
+	const brianButton = useRef(null);
+	useEffect(() => {
+		gsap.timeline().to(brianButton.current, {scaleY: 0.85, scaleX: 1.2})
+		.to(brianButton.current, {scaleY: 1, scaleX:1})
+		.repeat(4);
+	}, [])
+
 
 	return (
 		<div className="container mt-5">
@@ -44,12 +55,6 @@ const IndexPage: React.FC = (): React.ReactElement => {
 			<Helmet>
 				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossOrigin="anonymous"></script>
 			</Helmet>
-			<Helmet>
-            <link
-                rel="stylesheet"
-                href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-            />
-            </Helmet>
 
 			<NavMenu header="Navigation" innerHeader="Pages" navLinks={ getAddresses(0) }></NavMenu>
 
@@ -79,12 +84,12 @@ const IndexPage: React.FC = (): React.ReactElement => {
 
 			<div className="chatbotButton">
 				<button
+					ref={brianButton}
 					className="btn btn-primary btn-floating mb-0 mt-0"
 					type="button"
 					onClick={() => {
 						chatbotref.current?.scrollIntoView({ behavior: "smooth" });
 						setbackdropActive(!backdropActive);
-						setrevealBrian(!revealBrian);
 					}}
 				>
 					<h5>
