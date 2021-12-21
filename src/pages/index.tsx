@@ -12,6 +12,8 @@ import { StaticImage } from "gatsby-plugin-image";
 import Footer from "../components/stateless/footer/footer";
 import { getAddresses } from "../Addresses";
 import { useRef } from "react";
+import {gsap} from "gsap"
+import { useEffect } from "react";
 
 /**
  * Index page markup
@@ -20,6 +22,19 @@ import { useRef } from "react";
 const IndexPage: React.FC = (): React.ReactElement => {
 	const chatbotref = React.useRef(null);
 	const [backdropActive, setbackdropActive] = useState(false);
+	
+	// Brian animation
+	const [revealBrian, setrevealBrian] = useState(false);
+	const brianTimeline = useRef(null);
+	const brianRef = useRef(null);
+	useEffect(() => {
+		if(backdropActive){
+			gsap.to(brianRef.current, {opacity: "1", display: "block", top: 0});
+		}
+		if(!backdropActive){
+			gsap.to(brianRef.current, {opacity: "0", display: "none", top: "200px"});
+		}
+	}, [revealBrian])
 
 	return (
 		<div className="container mt-5">
@@ -55,7 +70,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 				</div>
 			</div>
 
-			<div className={backdropActive ? "animate__animated animate__backInUp" : "animate__animated animate__backOutDown"}  id="brianWrapper">
+			<div ref={brianRef} id="brianWrapper">
 				<BrianBot></BrianBot>
 				<div ref={chatbotref}></div>
 			</div>
@@ -69,6 +84,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 					onClick={() => {
 						chatbotref.current?.scrollIntoView({ behavior: "smooth" });
 						setbackdropActive(!backdropActive);
+						setrevealBrian(!revealBrian);
 					}}
 				>
 					<h5>
