@@ -28,7 +28,8 @@ function getAddresses(activeindex:number): navMenuLinkData[]{
 		{ text: "Contact", active: false, url: "/contact" },
 		{ text: "Info", active: false, url: "/info" },
 		{ text: "Portfolio", active: false, url: "/portfolio" },
-		{ text: "Blog", active:false, url:"/blog"}
+		{ text: "Blog", active:false, url:"/blog"},
+        { text: "Privacy policy", active:false, url:"/privacypolicy"}
 	];
 
     navData[activeindex].active = true;

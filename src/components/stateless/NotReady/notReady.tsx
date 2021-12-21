@@ -14,7 +14,7 @@ const NotReady:React.FC<PageData> = (props:PageData): React.ReactElement => {
     return(
         <div className="col-12 mt-5">
             <div className="row">
-                <h1 className="col-12 text-center">{props.pageName} page is currently under contruction!</h1>
+                <h1 className="col-12 text-center">{props.pageName} page is currently under construction!</h1>
             </div>
             <div className="row mt-5">
                 <div className= "col-12 text-center">
