@@ -97,7 +97,6 @@ const IndexPage: React.FC = (): React.ReactElement => {
 					</h5>
 				</button>
 			</div>
-			
 		</div>
 	)
 }

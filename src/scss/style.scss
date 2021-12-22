@@ -33,7 +33,12 @@ $secondary:  $main_power_color_yellow;
 $info:       $main_power_color_blue;
 $warning:    $main_power_color_silver;
 $dark:       $main_background_color;
-$body-bg: $dark;
+$body-bg:    $dark;
+
+$input-color: $main_power_color_silver;
+$form-select-color: $main_power_color_yellow;
+$input-placeholder-color: $main_power_color_yellow;
+$form-check-input-bg:                     $main_power_color_yellow;
 
 
 // required bootstrap imports ------>
@@ -52,6 +57,11 @@ $body-bg: $dark;
 @import "./bootstrap/reboot";
 @import "./bootstrap/list-group";
 @import "./bootstrap/forms/input-group";
+@import "./bootstrap/forms/form-control";
+@import "./bootstrap/forms/labels";
+@import "./bootstrap/forms/form-select";
+@import "./bootstrap/forms/form-check";
+
 
 @import "./bootstrap//utilities/api"; // this must be last?
 
@@ -133,6 +143,40 @@ h1, h2, h3, h4, h5, h6{
   top: 0px;
   height: 100%;
   z-index: 80;
+}
+
+// Huge shout out for Nisharg Shah from stackoverflow for this
+.switch-mobile{
+  $index: 3rem;
+  $mainVal: 2rem;
+  margin-left: 0.7rem;
+  width: 90%;
+  .form-check-input{
+      height: $mainVal;
+      width: calc(#{$index} + 0.75rem);
+      border-radius: $mainVal * 2;
+  }
+
+  .form-check-label{
+    margin-left: 0.25rem;
+    margin-top: 0.5rem
+  }
+}
+
+.switch-desktop{
+  $index: 2.5rem;
+  $mainVal: 1.25rem;
+  margin-left: 0.7rem;
+  width: 100%;
+  .form-check-input{
+      height: $mainVal;
+      width: calc(#{$index} + 0.75rem);
+      border-radius: $mainVal * 2;
+  }
+  .form-check-label{
+    margin-left: 1rem;
+    margin-top: 0.2rem;
+  }
 }
 
 // by id ----->
