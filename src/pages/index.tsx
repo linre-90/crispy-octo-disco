@@ -3,59 +3,25 @@ import Headline from "../components/stateless/headline/headline";
 import CTA from "../components/stateless/cta/callToAction";
 import { NavMenu } from "../components/stateless/navMenu/navMenu";
 import BrianBot from "../components/statefull/brian/brian";
-import { faRobot } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Backdrop from "../components/stateless/backdrop/Backdrop";
-import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { StaticImage } from "gatsby-plugin-image";
 import Footer from "../components/stateless/footer/footer";
 import { getAddresses } from "../Addresses";
-import { useRef } from "react";
-import {gsap} from "gsap"
-import { useEffect } from "react";
 
 /**
  * Index page markup
  * @returns react component
  */
 const IndexPage: React.FC = (): React.ReactElement => {
-	const chatbotref = React.useRef(null);
-	const [backdropActive, setbackdropActive] = useState(false);
-	
-	// Brian animation
-	const brianRef = useRef(null);
-	useEffect(() => {
-		if(backdropActive){
-			gsap.timeline()
-			.to(brianRef.current, { startAt:{scale:"0.75", top: "200px"}, opacity: "1", display: "block", top: 0})
-			.to(brianRef.current, { scale: "1"});
-		}
-		if(!backdropActive){
-			gsap.timeline()
-			.to(brianRef.current, {scale: "0.9"})
-			.to(brianRef.current, {opacity: "0", display: "none", top: "200px"});
-		}
-	}, [backdropActive])
-
-	// brian button animation
-	const brianButton = useRef(null);
-	useEffect(() => {
-		gsap.timeline().to(brianButton.current, {scaleY: 0.85, scaleX: 1.2})
-		.to(brianButton.current, {scaleY: 1, scaleX:1})
-		.repeat(4);
-	}, [])
-
-
 	return (
 		<div className="container mt-5">
 			<StaticImage className="mobile_bgr d-md-none" src="../images/mobile/home.jpg" alt="Mobile industrial background image" placeholder="blurred"></StaticImage>
-			{backdropActive && <Backdrop></Backdrop>}
+			
 			{/* bootstrap javascript and popper */}
 			<Helmet>
 				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossOrigin="anonymous"></script>
 			</Helmet>
-
+			
 			<NavMenu header="Navigation" innerHeader="Pages" navLinks={ getAddresses(0) }></NavMenu>
 
 			<div className="bg-dark bg-opacity-75 p-3 rounded">
@@ -74,29 +40,8 @@ const IndexPage: React.FC = (): React.ReactElement => {
 					<CTA text="Call to action" url="http://localhost:8000"></CTA>
 				</div>
 			</div>
-
-			<div ref={brianRef} id="brianWrapper">
-				<BrianBot></BrianBot>
-				<div ref={chatbotref}></div>
-			</div>
-
+			<BrianBot></BrianBot>
 			<Footer></Footer>
-
-			<div className="chatbotButton">
-				<button
-					ref={brianButton}
-					className="btn btn-primary btn-floating mb-0 mt-0"
-					type="button"
-					onClick={() => {
-						chatbotref.current?.scrollIntoView({ behavior: "smooth" });
-						setbackdropActive(!backdropActive);
-					}}
-				>
-					<h5>
-						<FontAwesomeIcon icon={faRobot}></FontAwesomeIcon>  Brian
-					</h5>
-				</button>
-			</div>
 		</div>
 	)
 }

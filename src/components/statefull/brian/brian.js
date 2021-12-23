@@ -4,6 +4,10 @@ import BrianInterface from "./brianInterface";
 import Message from "./message";
 import { v4 as uuidv4 } from "uuid";
 import {useStaticQuery, graphql } from "gatsby";
+import { faRobot } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Backdrop from "../../stateless/backdrop/Backdrop";
+import gsap from "gsap";
 
 const BrianBot = () => {
     // state declaratioins
@@ -11,7 +15,33 @@ const BrianBot = () => {
     const [suggests, setSuggests] = useState([]);
     const [keywords, setKeywords] = useState([]);
     const [messages, setMessages] = useState([]);
-    const messageEnd = useRef();
+    const [backdropActive, setbackdropActive] = useState(false);
+
+    const messageEnd = useRef();// dummy end element in "chat"
+    
+    // Brian animation
+    const brianRef = useRef(null);
+    useEffect(() => {
+		if(backdropActive){
+			gsap.timeline()
+			.to(brianRef.current, { startAt:{scale:"0.75", top: "200px"}, opacity: "1", display: "block", top: 0})
+			.to(brianRef.current, { scale: "1"});
+		}
+		if(!backdropActive){
+			gsap.timeline()
+			.to(brianRef.current, {scale: "0.9"})
+			.to(brianRef.current, {opacity: "0", display: "none", top: "200px"});
+		}
+	}, [backdropActive]);
+
+    // brian button animation
+    const brianButton = useRef(null);
+	useEffect(() => {
+		gsap.timeline().to(brianButton.current, {scaleY: 0.85, scaleX: 1.2})
+		.to(brianButton.current, {scaleY: 1, scaleX:1})
+		.repeat(4);
+	}, [])
+
 
     // graphql query
     const data = useStaticQuery(
@@ -37,6 +67,7 @@ const BrianBot = () => {
         }
         `
     );
+
     useEffect(() => {
         // create keywords from mongo
         let initialKeywords = []
@@ -91,40 +122,60 @@ const BrianBot = () => {
     };
 
     return (
-        <div className="bg-secondary rounded p-3" id="">
-            <div>
-                {/* message field */}
-                <div className="scrollField">
-                    {messages.map((e) => {
-                        return (
-                            <Message
-                                key={uuidv4()}
-                                text={e.text}
-                                linkUrl={e.linkUrl}
-                                human={e.human}
-                            ></Message>
-                        );
-                    })}
-                    <div ref={messageEnd}></div>{/* Dummy end of chat div*/}
-                </div>
-                <hr></hr>
+        <div>
+            {backdropActive && <Backdrop></Backdrop>}
+            <div ref={brianRef} id="brianWrapper">
+                <div className="bg-secondary rounded p-3" id="">
+                    <div>
+                        {/* message field */}
+                        <div className="scrollField">
+                            {messages.map((e) => {
+                                return (
+                                    <Message
+                                        key={uuidv4()}
+                                        text={e.text}
+                                        linkUrl={e.linkUrl}
+                                        human={e.human}
+                                    ></Message>
+                                );
+                            })}
+                            <div ref={messageEnd}></div>{/* Dummy end of chat div*/}
+                        </div>
+                        <hr></hr>
 
-                {/* Autocomplete result*/}
-                <div>
-                    <Suggestion dataList={suggests}></Suggestion>
-                </div>
+                        {/* Autocomplete result*/}
+                        <div>
+                            <Suggestion dataList={suggests}></Suggestion>
+                        </div>
 
-                {/* Brians userinterface */}
-                <div>
-                    <BrianInterface
-                        inputValue={input}
-                        setInputFunction={setInput}
-                        updateSuggestState={() => updateSuggested(input)}
-                        sendMsg={sendMessage}
-                        suggestionList={suggests}
-                    ></BrianInterface>
+                        {/* Brians userinterface */}
+                        <div>
+                            <BrianInterface
+                                inputValue={input}
+                                setInputFunction={setInput}
+                                updateSuggestState={() => updateSuggested(input)}
+                                sendMsg={sendMessage}
+                                suggestionList={suggests}
+                            ></BrianInterface>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
+            <div className="chatbotButton">
+				<button
+                    ref={brianButton}
+					className="btn btn-primary btn-floating mb-0 mt-0"
+					type="button"
+					onClick={() => {
+						setbackdropActive(!backdropActive);
+					}}
+				>
+					<h5>
+						<FontAwesomeIcon icon={faRobot}></FontAwesomeIcon>  Brian
+					</h5>
+				</button>
+			</div>
         </div>
     );
 };
