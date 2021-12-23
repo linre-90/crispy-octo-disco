@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-
+import { faRobot } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 // Function to present brians suggestions
@@ -13,7 +14,7 @@ const Suggestion = (props) => {
       <div className="col-6">
         <ul className="list-group">
         <div>
-          <span><i>{props.dataList.length > 0 ? "Similar topics": "" }</i></span>
+          <span><i>{props.dataList.length > 0 ? <div><FontAwesomeIcon icon={faRobot}></FontAwesomeIcon> Do you mean?</div> : "" }</i></span>
           {props.dataList.map((item) => {
             if (index === 0) {
               index++;
