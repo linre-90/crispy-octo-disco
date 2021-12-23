@@ -45,6 +45,23 @@ module.exports = {
           retryWrites: true
         }
       }
+    },
+    {
+      resolve: "gatsby-source-mongodb",
+      options:{
+        dbName: "content",
+        collection:["texts"],
+        server:{
+          address:process.env.DBURL,
+          port:process.env.DBPORT
+        },
+        auth:{user: process.env.MONGOREADUSER, password:process.env.MONGOREADPASS},
+        extraParams:{
+          ssl:false,
+          authSource: "brian",
+          retryWrites: true
+        }
+      }
     }
   ]
 };

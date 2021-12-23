@@ -32,7 +32,7 @@ const Contact:React.FC = ():React.ReactElement => {
             // TODO redirect to form received
         }
         else if(response.code == 400){ // bad form error
-            alert("Server not accepting form. Check form and try again. If the problem continues send email to PLACEHOLDER.")
+            alert(`Server not accepting form. Check form and try again. If the problem continues send email to ${process.env.IN_CASE_EMERGENCY_EMAIL}.`)
             setpostingForm(false);
         }
         else{
