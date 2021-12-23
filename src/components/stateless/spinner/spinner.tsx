@@ -1,8 +1,8 @@
 import React, { FC, ReactElement, useEffect, useRef } from "react";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 import gsap from "gsap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 
 type spinnerProps = {
     size: SizeProp,
@@ -13,7 +13,7 @@ type spinnerProps = {
  * @param props 
  * @returns 
  */
-const Spinner:FC<spinnerProps> = (props:spinnerProps):ReactElement => {
+export const Spinner:FC<spinnerProps> = (props:spinnerProps):ReactElement => {
     let alignment = "";
 
     const spinnerRef = useRef(null);
@@ -43,4 +43,3 @@ const Spinner:FC<spinnerProps> = (props:spinnerProps):ReactElement => {
     )
 }
 
-export default Spinner;

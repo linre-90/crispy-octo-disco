@@ -1,11 +1,10 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState, useRef } from "react";
+import { Link } from "gatsby"
+import { gsap } from "gsap"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
-import {Link} from "gatsby"
-import {navMenuLinkData} from "../../../Addresses";
-import Backdrop from "../backdrop/Backdrop";
-import {gsap} from "gsap"
-import { useRef } from "react";
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { navMenuLinkData } from "../../../Addresses";
+import { Backdrop } from "../backdrop/Backdrop";
 
 /**
  * Navmenu prop types

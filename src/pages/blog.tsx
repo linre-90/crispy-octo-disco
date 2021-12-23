@@ -1,7 +1,5 @@
 import React, { ReactElement, FC } from "react";
-import {NotReady} from "../components/stateless/NotReady/notReady";
-
-
+import { NotReady } from "../components/stateless/NotReady/notReady";
 
 const Blog:FC = ():ReactElement => {
     const componentReady = false;

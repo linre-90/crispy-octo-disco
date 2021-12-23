@@ -1,6 +1,5 @@
-import {FC, ReactElement} from "react";
-import React from "react";
-import {Link} from "gatsby"
+import React, { FC, ReactElement } from "react";
+import { Link } from "gatsby"
 
 
 /**

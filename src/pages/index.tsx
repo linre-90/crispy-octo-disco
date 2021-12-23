@@ -1,11 +1,11 @@
 import * as React from "react"
-import {Headline} from "../components/stateless/headline/headline";
-import CTA from "../components/stateless/cta/callToAction";
+import { Headline } from "../components/stateless/headline/headline";
+import { Cta } from "../components/stateless/cta/callToAction";
 import { NavMenu } from "../components/stateless/navMenu/navMenu";
-import BrianBot from "../components/statefull/brian/brian";
+import { BrianBot } from "../components/statefull/brian/brian";
 import { Helmet } from "react-helmet";
 import { StaticImage } from "gatsby-plugin-image";
-import Footer from "../components/stateless/footer/footer";
+import { Footer } from "../components/stateless/footer/footer";
 import { getAddresses } from "../Addresses";
 
 /**
@@ -37,7 +37,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 					</p>
 				</div>
 				<div className="row">
-					<CTA text="Call to action" url="http://localhost:8000"></CTA>
+					<Cta text="Call to action" url="http://localhost:8000"></Cta>
 				</div>
 			</div>
 			<BrianBot></BrianBot>

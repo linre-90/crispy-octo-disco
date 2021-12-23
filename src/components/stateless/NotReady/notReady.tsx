@@ -1,6 +1,7 @@
 import React from "react";
-import {faTools} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faTools} from "@fortawesome/free-solid-svg-icons";
+
 
 /**
  * Data to page not ready component

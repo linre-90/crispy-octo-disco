@@ -1,9 +1,9 @@
 import React from "react";
-import Creators from "./creatorSection/creators";
-import {SiteMapLink} from "./sitemap/sitemapSection";
+import { Creators } from "./creatorSection/creators";
+import { SiteMapLink } from "./sitemap/sitemapSection";
 
 
-const Footer = () => {
+export const Footer = () => {
 
     return (
         <div className="container rounded">
@@ -50,4 +50,3 @@ const Footer = () => {
     )
 }
 
-export default Footer;

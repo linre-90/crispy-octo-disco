@@ -1,8 +1,7 @@
 import * as React from "react"
-import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Link} from "gatsby"
-
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 
 const NotFoundPage: React.FC = ():React.ReactElement => {

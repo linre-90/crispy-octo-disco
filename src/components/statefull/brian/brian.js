@@ -2,14 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import Suggestion from "./suggestion";
 import BrianInterface from "./brianInterface";
 import Message from "./message";
-import { v4 as uuidv4 } from "uuid";
-import {useStaticQuery, graphql } from "gatsby";
-import { faRobot } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Backdrop from "../../stateless/backdrop/Backdrop";
-import gsap from "gsap";
 
-const BrianBot = () => {
+import gsap from "gsap";
+import { v4 as uuidv4 } from "uuid";
+import { useStaticQuery, graphql } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRobot } from "@fortawesome/free-solid-svg-icons";
+import { Backdrop } from "../../stateless/backdrop/Backdrop";
+
+
+
+export const BrianBot = () => {
     // state declaratioins
     const [input, setInput] = useState("");
     const [suggests, setSuggests] = useState([]);
@@ -180,6 +183,5 @@ const BrianBot = () => {
     );
 };
             
-export default BrianBot;
 
 

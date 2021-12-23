@@ -3,10 +3,10 @@ import {Link} from "gatsby";
 import {FormValidator, formValidationResult} from "../FormValidator";
 import { NavMenu } from "../components/stateless/navMenu/navMenu"; 
 import {getAddresses} from "../Addresses"
-import Footer from "../components/stateless/footer/footer";
-import Spinner from "../components/stateless/spinner/spinner";
+import {Footer} from "../components/stateless/footer/footer";
+import {Spinner} from "../components/stateless/spinner/spinner";
 import {Headline} from "../components/stateless/headline/headline";
-import BrianBot from "../components/statefull/brian/brian";
+import {BrianBot} from "../components/statefull/brian/brian";
 
 const Contact:React.FC = ():React.ReactElement => {
     const [timeStamp, setTimeStamp] = useState(Date.now());

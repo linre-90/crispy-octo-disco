@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {FC, ReactElement} from "react";
+import { FC, ReactElement } from "react";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
