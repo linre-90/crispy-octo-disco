@@ -5,11 +5,10 @@ const BrianInterface = (props) => {
   return (
       <div className="input-group mb-3">
         <div className="input-group-prepend">
-          <div className="row p-5">
-          <span className="input-group-text col-4" id="userQuestion">Ask@Brian</span>
+          <span className="input-group-text">Ask@Brian</span>
+        </div>
           <input
-            aria-describedby="userQuestion"
-            className="form-control col-8"
+            className="form-control"
             default=""
             onKeyDown={(e) => {
               if (e.key === "Enter" && props.suggestionList.length > 0) {
@@ -29,8 +28,6 @@ const BrianInterface = (props) => {
               props.updateSuggestState(props.input);
             }}
           ></input>
-          </div>
-        </div>
     </div>
     
   );

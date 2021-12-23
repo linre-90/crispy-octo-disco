@@ -1,5 +1,5 @@
 import * as React from "react"
-import Headline from "../components/stateless/headline/headline";
+import {Headline} from "../components/stateless/headline/headline";
 import CTA from "../components/stateless/cta/callToAction";
 import { NavMenu } from "../components/stateless/navMenu/navMenu";
 import BrianBot from "../components/statefull/brian/brian";

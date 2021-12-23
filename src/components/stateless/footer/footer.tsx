@@ -7,6 +7,7 @@ const Footer = () => {
 
     return (
         <div className="container rounded">
+            <hr className=""></hr>
             <div className="bg-dark bg-opacity-75 row text-center p-3 mt-5">
                 <div className="col-sm-12 col-md-6 col-lg-3">
                     <h3>Content creators</h3>

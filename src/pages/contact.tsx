@@ -6,39 +6,37 @@ import { NavMenu } from "../components/stateless/navMenu/navMenu";
 import {getAddresses} from "../Addresses"
 import Footer from "../components/stateless/footer/footer";
 import Spinner from "../components/stateless/spinner/spinner";
+import {Headline} from "../components/stateless/headline/headline";
+import BrianBot from "../components/statefull/brian/brian";
 
 const Contact:React.FC = ():React.ReactElement => {
     const componentReady = true;
     const [timeStamp, setTimeStamp] = useState(Date.now());
-    const [serverResponse, setServerResponse] = useState(null);
     const [postingForm, setpostingForm] = useState(false);
     const [messagelen, setMessageLen] = useState(0);
-    const [acceptedPolicy, setAcceptedPolicy] = useState(false);
     const [wantToSubmitemail, setwantToSubmitemail] = useState(false);
     const [formIsValid, setFormIsValid] = useState(false);
 
     const formHandler = new FormValidator(20, 300);
 
-    // refs
-    const messageRef = useRef(null);
-    const topicRef = useRef(null);
-    const headerRef = useRef(null);
-    const emailRef = useRef(null);
+    // form field states
+    const [message, setMessage] = useState(null);
+    const [topic, setTopic] = useState(null);
+    const [header, setHeader] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [name, setName] = useState("-1");
+    const [acceptedPolicy, setAcceptedPolicy] = useState(false);
 
     useEffect(() => {
-        if(formIsValid){
-            
-            setpostingForm(true);
-            postForm();
-        }
-    }, [formIsValid]);
+        validate(false);
+    }, [message, topic, header, email, acceptedPolicy])
 
     const postForm:Function = async () => {
         console.log("TODO sent to backend function");
-        let response = await {code: 200}
+        let response = await {code: 400}
         
         if(response.code == 200){ // ok
-
+            // TODO redirect to form received
         }
         else if(response.code == 400){ // bad form error
             alert("Server not accepting form. Check form and try again. If the problem continues send email to PLACEHOLDER.")
@@ -50,34 +48,45 @@ const Contact:React.FC = ():React.ReactElement => {
         }
     }
 
-    const validate:Function = () => {
+    const validate:Function = (fromButton:boolean) => {
         let validation: formValidationResult;
 
-        if(acceptedPolicy && !wantToSubmitemail){
+        if(!wantToSubmitemail){
             validation = formHandler.validate({
-                headline: headerRef.current.value, 
-                topic: Number.parseInt(topicRef.current.value), 
-                message: messageRef.current.value, 
+                headline: header, 
+                topic: topic, 
+                message: message, 
                 fillTime: Date.now() - timeStamp,
-                validateEmail:false
+                validateEmail:false,
+                policy: acceptedPolicy,
+                name:name
             });
         }
-        else if(acceptedPolicy && wantToSubmitemail){
+        else if(wantToSubmitemail){
             validation = formHandler.validate({
-                headline: headerRef.current.value, 
-                topic: Number.parseInt(topicRef.current.value), 
-                message: messageRef.current.value, 
-                email:emailRef.current.value, 
+                headline: header, 
+                topic: topic, 
+                message: message, 
+                email: email, 
                 fillTime: Date.now() - timeStamp,
-                validateEmail:true
+                policy: acceptedPolicy,
+                validateEmail: true,
+                name:name
             });
         }
+
         if(validation.isValid){
             setFormIsValid(true);
+            if(fromButton){
+                setpostingForm(true);
+                postForm();
+            }
         }
         else{
             setFormIsValid(false);
-            alert("Please check form! " + validation.message);
+            if(fromButton){
+                alert("Please check form! " + validation.message);
+            }
         }
     }
  
@@ -87,13 +96,14 @@ const Contact:React.FC = ():React.ReactElement => {
                 <NavMenu header="Contact" innerHeader="Navigation" navLinks={getAddresses(1)}></NavMenu>
                 <div className="container mt-5 col-12 col-lg-6 col-xl-4">
                     <div className="row">
-                        <h1 className="col-12 text-center">Contact form</h1>
+                        <Headline hSize={1} text="Contact form"></Headline>
                     </div>
                     <div className="row">
-                        <h4 className="col-12 text-center">Send me questions, job offerings or just general feedback.</h4>
+                        <Headline hSize={4} text="Send me questions, job offerings or just general feedback."></Headline>
                     </div>
                     <div className="row">
-                        <h6 className="col-12 text-center">Please read <Link to="/privacypolicy">privacy policy</Link> to learn more how your information is handled.</h6>
+                        <Headline hSize={6} text="Please read privacy policy to learn more how your information is handled."></Headline>
+                        <Link className="text-center" to='/privacypolicy'>privacy policy</Link>
                     </div>
                     <div className="row">
                         <div className="col-1"></div>
@@ -101,33 +111,60 @@ const Contact:React.FC = ():React.ReactElement => {
                         <div className="col-1"></div>
                     </div>
 
+                    {/* its a trap*/}
+                    <div className="mb-3 invisible">
+                        <label htmlFor="name" className="form-label">name:</label>
+                        <input 
+                            type="text" 
+                            className="form-control col-12" 
+                            placeholder={formHandler.placeHolders.headline} 
+                            required
+                            onKeyUp={(event) => {
+                                const target = event.target as HTMLInputElement;
+                                setName(target.value);
+                            }}
+                        />
+                    </div>
+
                     {/* Form begins */}
                     <div className="mb-3">
-                        <label htmlFor="headline" className="form-label">Headline</label>
-                        <input ref={headerRef} type="text" className="form-control col-12" id="headline" placeholder={formHandler.placeHolders.headline} required/>
+                        <label htmlFor="headline" className="form-label">Headline:</label>
+                        <input 
+                            type="text" 
+                            className="form-control col-12" 
+                            placeholder={formHandler.placeHolders.headline} 
+                            required
+                            onKeyUp={(event) => {
+                                const target = event.target as HTMLInputElement;
+                                setHeader(target.value);
+                            }}
+                        />
                     </div>
 
                     {/* select topic */}
                     <div className="mb-3">
-                        <label htmlFor="topic" className="form-label">Topic</label>
-                        <select ref={topicRef} className="form-select col-12" id="topic" required>
+                        <label htmlFor="topic" className="form-label">Topic:</label>
+                        <select className="form-select col-12" id="topic" required>
                             <option defaultValue={null}>{formHandler.placeHolders.topic}</option>
                             {
                                 formHandler.getTopics().map((topic) => {
-                                    return <option key={topic} value={formHandler.getTopics().indexOf(topic)}>{topic}</option>
+                                    return <option onClick={() => setTopic(formHandler.getTopics().indexOf(topic))} key={topic} value={formHandler.getTopics().indexOf(topic)}>{topic}</option>
                                 })
                             }
                         </select>
                     </div>
-
                     {/* message */}
                     <div className="mb-0">
-                        <label htmlFor="message" className="form-label">Example textarea</label>
+                        <label htmlFor="message" className="form-label">Your message:</label>
                         <textarea 
-                            ref={messageRef} 
-                            onKeyUp={() => setMessageLen(messageRef.current.value.length)}  
+                            onKeyUp={
+                                (event) => {
+                                    const target = event.target as HTMLTextAreaElement;
+                                    setMessageLen(target.value.length);
+                                    setMessage(target.value);
+                                }
+                            }  
                             className="form-control" 
-                            id="message" 
                             rows={3} 
                             placeholder={formHandler.placeHolders.messageArea} 
                             required minLength={formHandler.minLength} 
@@ -141,11 +178,11 @@ const Contact:React.FC = ():React.ReactElement => {
                     {/* accept privacy policy checkBox */}
                     <div className="row">
                         <div className="form-check form-switch switch-mobile d-lg-none">
-                            <input className="form-check-input" type="checkbox" id="acceptPrivacy" onChange={() => setAcceptedPolicy(!acceptedPolicy)}/>
+                            <input className="form-check-input" type="checkbox" onChange={() => setAcceptedPolicy(!acceptedPolicy)}/>
                             <label className="form-check-label" htmlFor="acceptPrivacy"><small><u>I have read and accept privacy policy.</u></small></label>
                         </div>
                         <div className="form-check form-switch switch-desktop d-none d-lg-block">
-                            <input className="form-check-input" type="checkbox" id="acceptPrivacy" onChange={() => setAcceptedPolicy(!acceptedPolicy)}/>
+                            <input className="form-check-input" type="checkbox" onChange={() => setAcceptedPolicy(!acceptedPolicy)}/>
                             <label className="form-check-label" htmlFor="acceptPrivacy"><small><u>I have read and accept privacy policy.</u></small></label>
                         </div>
                     </div>
@@ -153,11 +190,11 @@ const Contact:React.FC = ():React.ReactElement => {
                     {/* submit email checkBox */}
                     <div className="row mb-3">
                         <div className="form-check form-switch switch-mobile d-lg-none">
-                            <input className="form-check-input" type="checkbox" id="submitEmail" onChange={() => setwantToSubmitemail(!wantToSubmitemail)}/>
+                            <input className="form-check-input" type="checkbox" onChange={() => setwantToSubmitemail(!wantToSubmitemail)}/>
                             <label className="form-check-label" htmlFor="submitEmail"><small><u>I want to submit my email address for response.</u></small></label>
                         </div>
                         <div className="form-check form-switch switch-desktop d-none d-lg-block">
-                            <input className="form-check-input" type="checkbox" id="submitEmail" onChange={() => setwantToSubmitemail(!wantToSubmitemail)}/>
+                            <input className="form-check-input" type="checkbox" onChange={() => setwantToSubmitemail(!wantToSubmitemail)}/>
                             <label className="form-check-label" htmlFor="submitEmail"><small><u>I want to submit my email address for response.</u></small></label>
                         </div>
                     </div>
@@ -165,37 +202,33 @@ const Contact:React.FC = ():React.ReactElement => {
                     {/* optional email */
                         wantToSubmitemail &&
                         <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Email</label>
-                            <input ref={emailRef} type="email" className="form-control col-12" id="email" placeholder={formHandler.placeHolders.email}/>
+                            <label htmlFor="email" className="form-label">Email:</label>
+                            <input 
+                                type="email" 
+                                className="form-control col-12" 
+                                placeholder={formHandler.placeHolders.email}
+                                onKeyUp={(event) => {
+                                    const target = event.target as HTMLInputElement;
+                                    setEmail(target.value);
+                                }}
+                            />
                         </div>
                     }
-                    
                     {/* Submit button */
-                    acceptedPolicy && !wantToSubmitemail && !postingForm|| acceptedPolicy && wantToSubmitemail && !postingForm ?
+                    !postingForm ?
                         <div className="row mb-3">
-                            <div className="col-3"></div>
-                            <div className="col-3"></div>
-                            <div className="col-3"></div>
-                            <div className="col-3 text-end">
-                                <button type="button" className="btn btn-primary" onClick={() => validate()}>Send</button>
+                            <div className="col-4"></div>
+                            <div className="col-4"></div>
+                            <div className="col-4">
+                                <button type="button" style={{"width":"100%"}} className="btn btn-primary col-4" onClick={() => validate(true)}>Send</button>
                             </div>
                         </div>
-                    : !postingForm ?
-                        <div className="row mb-3">
-                            <div className="col-3"></div>
-                            <div className="col-3"></div>
-                            <div className="col-3"></div>
-                            <div className="col-3 text-end">
-                                <button type="button" className="btn btn-primary" disabled>Send</button>
-                            </div>
-                        </div>
-                    : !serverResponse && serverResponse != null ?
+                    : 
                         <div><Spinner size="3x" align="center"></Spinner></div>
 
-                    :
-                        <div>{serverResponse}</div>
                     }
                 </div>
+                <BrianBot></BrianBot>
                 <Footer></Footer>
             </div>
         )

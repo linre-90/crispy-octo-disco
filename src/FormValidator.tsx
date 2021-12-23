@@ -7,6 +7,8 @@ type formInputs = {
     fillTime: number
     email?: string
     validateEmail: boolean,
+    policy: boolean,
+    name: string
 }
 
 export type formValidationResult = {
@@ -19,12 +21,14 @@ export class FormValidator {
     maxLength: number;
     minLength:number;
     placeHolders: any;
+    name:string;
 
     private readonly validationSchema = Joi.object({
-        headline: Joi.string().alphanum().min(3).max(100).required(),
+        headline: Joi.string().min(3).max(100).required(),
         topic: Joi.number().integer().min(0).max(2).required(),
-        message: Joi.string().alphanum().min(20).max(300).required(),
-        fillTime: Joi.number().min(15).message("You filled the form too quickly and program thinks you are a spam bot. Please wait few seconds and try again.")
+        message: Joi.string().min(20).max(300).required(),
+        fillTime: Joi.number().min(7).message("You filled the form too quickly and program thinks you are a spam bot. Please wait few seconds and try again."),
+        privacy_policy: Joi.boolean().invalid(false).required(),
     })
 
     private readonly emailSchema = Joi.object({email: Joi.string().min(2).email({ tlds: {allow: false} }).required()});
@@ -37,8 +41,9 @@ export class FormValidator {
             headline: "Example headline",
             topic: "Select topic...",
             messageArea: "20-300 characters",
-            email: "example@example.com"
-        }
+            email: "example@example.com",
+        };
+        this.name = "-1";
     }
 
     getTopics():string[]
@@ -47,7 +52,17 @@ export class FormValidator {
     }
 
     validate(values:formInputs):formValidationResult{
-        let {error, value} = this.validationSchema.validate({headline: values.headline, topic: values.topic, message: values.message, fillTime: values.fillTime / 1000});
+        if(this.name !== values.name){
+            return {isValid: false, message: "Modified invisible field you are a bot."}
+        }
+
+        let {error, value} = this.validationSchema.validate({
+            headline: values.headline, 
+            topic: values.topic, 
+            message: values.message, 
+            fillTime: values.fillTime / 1000,
+            privacy_policy: values.policy
+        });
 
         if(values.validateEmail && !error){
             let {error, value} = this.emailSchema.validate({email:values.email});
@@ -58,7 +73,6 @@ export class FormValidator {
         if(error){
             return {isValid: false, message:error.message};
         }
-
         return {isValid: true};
     }
 }
