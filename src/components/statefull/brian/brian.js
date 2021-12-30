@@ -49,41 +49,35 @@ export const BrianBot = () => {
     // graphql query
     const data = useStaticQuery(
         graphql`
-        query{
-            keywords: allMongodbBrianKeywords {
-                edges {
-                    node {
-                        name
-                        url
-                    }
-                }
+        query brianQuery {
+            mongo_data {
+              keywords {
+                name
+                url
+              }
+              populars {
+                human
+                linkUrl
+                text
+              }
             }
-            popular: allMongodbBrianPopular {
-                edges {
-                    node {
-                        linkUrl
-                        text
-                        human
-                    }
-                }
-            }
-        }
+          }
         `
     );
 
     useEffect(() => {
         // create keywords from mongo
-        let initialKeywords = []
-        data.keywords.edges.forEach(element => {
-            initialKeywords.push({name: element.node.name, url:element.node.url});
+        let initialKeywords = [];
+        data.mongo_data.keywords.forEach(element => {
+            initialKeywords.push({name: element.name, url:element.url});
         });
-
+        
         // create messages from mongo
         let initialMessages = [];
-        data.popular.edges.forEach(element => {
-            initialMessages.push({linkUrl: element.node.linkUrl, text:element.node.text, human:element.node.human});
+        data.mongo_data.populars.forEach(element => {
+            initialMessages.push({linkUrl: element.linkUrl, text:element.text, human:element.human});
         });
-
+        
         setKeywords(initialKeywords);
         setMessages(initialMessages);
     }, []);

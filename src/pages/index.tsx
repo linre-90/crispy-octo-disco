@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, StaticQueryDocument, useStaticQuery } from "gatsby";
 import { Headline } from "../components/stateless/headline/headline";
 import { Cta } from "../components/stateless/cta/callToAction";
 import { NavMenu } from "../components/stateless/navMenu/navMenu";
@@ -16,37 +16,33 @@ import { getAddresses } from "../Addresses";
 const IndexPage: React.FC = (): React.ReactElement => {
 
 	// get page texts from database filtered with page == index.
-    const textData = useStaticQuery(
+    const indexPageTextData = useStaticQuery(
         graphql`
-        query{
-            allMongodbContentTexts(
-				filter: { 
-					page: { eq: "index" }  }) {
-                edges {
-                    node {
-                        content
-						page
-						place
-                    }
-                }
-            }
-        }
+        query IndexPageQuery {
+			mongo_data {
+			  texts(query: {page: "index"}) {
+				content
+				page
+				place
+			  }
+			}
+		  }
         `
     );
 	
 	const [mainText, setMainText] = useState(null);
 	// fill content hook
 	useEffect(() => {
-		textData.allMongodbContentTexts.edges.forEach(edge => {
-			if(edge.node.place == "main"){
-				setMainText(edge.node.content);
+		indexPageTextData.mongo_data.texts.forEach((textObject: { place: string; content:string }) => {
+			if(textObject.place === "main"){
+				setMainText(textObject.content);
 			}
 		});
 	},[]);
 
 	return (
 		<div className="container mt-5">
-			<StaticImage className="mobile_bgr d-md-none" src="../images/mobile/home.jpg" alt="Mobile industrial background image" placeholder="blurred"></StaticImage>
+			<StaticImage className="mobile_bgr d-md-none" src="../images/mobile/Home.jpg" alt="Mobile industrial background image" placeholder="blurred"></StaticImage>
 			
 			{/* bootstrap javascript and popper */}
 			<Helmet>

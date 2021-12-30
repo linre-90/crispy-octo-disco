@@ -9,12 +9,10 @@ import { graphql, useStaticQuery } from "gatsby";
 export const Creators:FC = ():ReactElement => {
     const creatorData = useStaticQuery(graphql`
         query creatorQuery {
-            allMongodbCreatorsImage {
-                edges {
-                    node {
+            mongo_data {
+                images {
                     name
                     url
-                    }
                 }
             }
         }
@@ -23,8 +21,8 @@ export const Creators:FC = ():ReactElement => {
     return(
         <div>
             {
-                creatorData.allMongodbCreatorsImage.edges.map((node:any) => {
-                    return <p key={node.node.name} >- <a href={node.node.url}>{node.node.name}</a> -</p>
+                creatorData.mongo_data.images.map((creator:{name: string, url: string}) => {
+                    return <p key={creator.name} >- <a href={creator.url}>{creator.name}</a> -</p>
                 })
             }
         </div>
