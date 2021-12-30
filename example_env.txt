@@ -4,3 +4,5 @@ IN_CASE_EMERGENCY_EMAIL= 'contact email for site'
 
 MONGO_GRAPHQL_API_ADDRESS= 'address to mongo graphql endpoint' 
 MONGO_GRAPHQL_API_KEY= 'authentication key to mongo graphql endpoint'
+
+POST_BRIAN_SEARCH_WORD_URL='where to post'
