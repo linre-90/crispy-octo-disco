@@ -1,0 +1,6 @@
+
+PIXABAY_API= 'can't remember if used at all, propably not'
+IN_CASE_EMERGENCY_EMAIL= 'contact email for site'
+
+MONGO_GRAPHQL_API_ADDRESS= 'address to mongo graphql endpoint' 
+MONGO_GRAPHQL_API_KEY= 'authentication key to mongo graphql endpoint'

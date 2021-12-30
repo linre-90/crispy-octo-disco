@@ -30,6 +30,17 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "Mongo",
+        fieldName: "mongo_data",
+        url: process.env.MONGO_GRAPHQL_API_ADDRESS,
+        headers: {
+          "apiKey": process.env.MONGO_GRAPHQL_API_KEY
+        },
+      },
+    },
+    {
       resolve: "gatsby-source-mongodb",
       options:{
         dbName: "creators",
