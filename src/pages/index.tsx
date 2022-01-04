@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import { graphql, StaticQueryDocument, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { Headline } from "../components/stateless/headline/headline";
 import { Cta } from "../components/stateless/cta/callToAction";
 import { NavMenu } from "../components/stateless/navMenu/navMenu";
@@ -62,7 +62,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 					<p>{mainText}</p>
 				</div>
 				<div className="row">
-					<Cta text="Call to action" url="http://localhost:8000"></Cta>
+					<Cta text="Call to action" url="/"></Cta>
 				</div>
 			</div>
 			<BrianBot></BrianBot>

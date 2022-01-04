@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { gsap } from "gsap"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
-import { navMenuLinkData } from "../../../Addresses";
+import type {navMenuLinkData} from "../../../Addresses"
 import { Backdrop } from "../backdrop/Backdrop";
 
 /**

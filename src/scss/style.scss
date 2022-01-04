@@ -17,6 +17,7 @@ $main_power_color_silver: #E6E8E6;
 
 // **** fonts ****
 $header_font: Baumans, cursive;
+
 $text_font: Quicksand, sans serif;
 
 
@@ -63,7 +64,6 @@ $input-group-addon-color:               $main_background_color;
 @import "./bootstrap/forms/labels";
 @import "./bootstrap/forms/form-select";
 @import "./bootstrap/forms/form-check";
-
 
 @import "./bootstrap//utilities/api"; // this must be last?
 

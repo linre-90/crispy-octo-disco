@@ -6,7 +6,7 @@
  * @param url - Link url
  * @param active - Is this the active page?
  */
- type navMenuLinkData = {
+ export type navMenuLinkData = {
     text: string,
     url: string,
     active: boolean,
@@ -22,7 +22,7 @@
  * @param activeindex - index of active page
  * @returns navMenuLinkData array
  */
-function getAddresses(activeindex:number): navMenuLinkData[]{
+export function getAddresses(activeindex:number): navMenuLinkData[]{
     const navData: navMenuLinkData[] = [
 		{ text: "Home", active: false, url: "/" },
 		{ text: "Contact", active: false, url: "/contact" },
@@ -38,4 +38,3 @@ function getAddresses(activeindex:number): navMenuLinkData[]{
 }
 
 
-export {getAddresses, navMenuLinkData}

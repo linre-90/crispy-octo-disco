@@ -80,6 +80,7 @@ export const BrianBot = () => {
         
         setKeywords(initialKeywords);
         setMessages(initialMessages);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -94,6 +95,8 @@ export const BrianBot = () => {
             let briansIdea = keywords.filter((word) => {
                 if (word.name.includes(input.toLowerCase())) {
                     return word;
+                }else{
+                    return null;
                 }
             });
             setSuggests(briansIdea);
