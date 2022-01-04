@@ -13,7 +13,6 @@ const Portfolio:React.FC = ():React.ReactElement => {
                     appName
                     appDescription
                     headerImg
-                    markdown
                 }
             }
         }
