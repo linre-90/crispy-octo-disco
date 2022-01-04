@@ -32,7 +32,7 @@ export const Footer = () => {
                     <p>- <a href="https://www.mongodb.com/">MongoDB</a> -</p>
                     <p>- <a href="https://www.typescriptlang.org/">TypeScript</a> -</p>
                     <p>- <a href="https://firebase.google.com/">Firebase</a> -</p>
-                    <p>- <a href="https://www.netlify.com/">Netlify</a> -</p>
+                    <p>- <a href="https://www.cloudflare.com/">Cloudflare</a> -</p>
                     <p>- <a href="https://greensock.com/">Gsap</a> -</p>
                     <hr className="d-sm-block d-md-none" />
                 </div>

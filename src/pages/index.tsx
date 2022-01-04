@@ -14,32 +14,6 @@ import { getAddresses } from "../Addresses";
  * @returns react component
  */
 const IndexPage: React.FC = (): React.ReactElement => {
-
-	// get page texts from database filtered with page == index.
-    const indexPageTextData = useStaticQuery(
-        graphql`
-        query IndexPageQuery {
-			mongo_data {
-			  texts(query: {page: "index"}) {
-				content
-				page
-				place
-			  }
-			}
-		  }
-        `
-    );
-	
-	const [mainText, setMainText] = useState(null);
-	// fill content hook
-	useEffect(() => {
-		indexPageTextData.mongo_data.texts.forEach((textObject: { place: string; content:string }) => {
-			if(textObject.place === "main"){
-				setMainText(textObject.content);
-			}
-		});
-	},[]);
-
 	return (
 		<div className="container mt-5">
 			<StaticImage className="mobile_bgr d-md-none" src="../images/mobile/Home.jpg" alt="Mobile industrial background image" placeholder="blurred"></StaticImage>
@@ -59,7 +33,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 					<Headline text="Welcome" hSize={3}></Headline>
 				</div>
 				<div className="row">
-					<p>{mainText}</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum orci ut nisl mattis egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque volutpat tempus nibh, at aliquam turpis sodales id. Donec in urna ut magna sollicitudin mattis nec a massa. Integer massa enim, fermentum vel volutpat ac, dictum sit amet erat. Aliquam vitae rhoncus nunc. Ut eu nunc vitae odio consectetur efficitur. Morbi gravida at libero id volutpat. Aenean eu mauris auctor, blandit turpis ac, lobortis nunc. Donec dapibus leo lorem, in imperdiet felis convallis nec. Duis et egestas dolor. Nunc est dolor, rhoncus luctus tempus quis, aliquet sed lorem. In ac condimentum ligula. Pellentesque id ante ac orci blandit pulvinar nec in libero. Pellentesque a mi vitae augue tempus tempor in vitae est. Cras pellentesque, augue ut tincidunt iaculis, orci dolor dapibus metus, sit amet rhoncus lorem justo egestas urna. Integer justo dui, posuere ac odio vel, aliquam rutrum massa. Curabitur porttitor dictum lacinia. Praesent a tristique nunc, at pharetra tortor. Pellentesque eget suscipit magna, quis pulvinar leo. Morbi semper efficitur est sed mollis. Quisque quis magna lacus.</p>
 				</div>
 				<div className="row">
 					<Cta text="Call to action" url="/"></Cta>

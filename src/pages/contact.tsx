@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Link} from "gatsby";
 import {FormValidator, formValidationResult} from "../FormValidator";
 import { NavMenu } from "../components/stateless/navMenu/navMenu"; 
@@ -24,14 +24,22 @@ const Contact:React.FC = ():React.ReactElement => {
     const [name, setName] = useState("-1");
     const [acceptedPolicy, setAcceptedPolicy] = useState(false);
 
-    const postForm:Function = async () => {
-        console.log("TODO sent to backend function");
-        let response = await {code: 400}
-        
-        if(response.code == 200){ // ok
-            // TODO redirect to form received
+    const postForm:Function = async (data: any) => {
+        let response = await fetch(
+            process.env.POST_FORM_URL,
+            {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+
+        if(response.status == 200){ // ok
+            window.location.href = "/formSend";
         }
-        else if(response.code == 400){ // bad form error
+        else if(response.status == 400){ // bad form error
             alert(`Server not accepting form. Check form and try again. If the problem continues send email to ${process.env.IN_CASE_EMERGENCY_EMAIL}.`)
             setpostingForm(false);
         }
@@ -42,13 +50,13 @@ const Contact:React.FC = ():React.ReactElement => {
 
     const validate:Function = () => {
         let validation: formValidationResult;
-
+        const fillTime = Date.now() - timeStamp
         if(!wantToSubmitemail){
             validation = formHandler.validate({
                 headline: header, 
                 topic: topic, 
                 message: message, 
-                fillTime: Date.now() - timeStamp,
+                fillTime: fillTime,
                 validateEmail:false,
                 policy: acceptedPolicy,
                 name:name
@@ -60,16 +68,24 @@ const Contact:React.FC = ():React.ReactElement => {
                 topic: topic, 
                 message: message, 
                 email: email, 
-                fillTime: Date.now() - timeStamp,
+                fillTime: fillTime,
                 policy: acceptedPolicy,
                 validateEmail: true,
                 name:name
             });
         }
-
         if(validation.isValid){
+            const data = {
+                topic: topic,
+                message: message,
+                email: email,
+                name: name,
+                acceptedPolicy: acceptedPolicy,
+                fillTime: fillTime,
+                headline: header
+            }
             setpostingForm(true);
-            postForm();
+            postForm(data);
         }
         else{
             alert("Please check form! " + validation.message);
