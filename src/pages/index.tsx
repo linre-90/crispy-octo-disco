@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react"
-import { graphql, useStaticQuery } from "gatsby";
+import React from "react"
 import { Headline } from "../components/stateless/headline/headline";
 import { Cta } from "../components/stateless/cta/callToAction";
 import { NavMenu } from "../components/stateless/navMenu/navMenu";

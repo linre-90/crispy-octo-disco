@@ -94,7 +94,7 @@ const Contact:React.FC = ():React.ReactElement => {
  
     return (
         <div>
-            <NavMenu header="Contact" innerHeader="Navigation" navLinks={getAddresses(1)}></NavMenu>
+            <NavMenu header="Contact" innerHeader="Pages" navLinks={getAddresses(1)}></NavMenu>
             <div className="container mt-5 col-12 col-lg-6 col-xl-4">
                 <div className="row">
                     <Headline hSize={1} text="Contact form"></Headline>
