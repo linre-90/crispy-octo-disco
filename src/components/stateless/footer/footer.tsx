@@ -1,18 +1,22 @@
 import React from "react";
-import { Creators } from "./creatorSection/creators";
+import { Creator } from "./creatorSection/creators";
 import { SiteMapLink } from "./sitemap/sitemapSection";
 
 
 export const Footer = () => {
 
     return (
+        
         <div className="container rounded">
             <hr className=""></hr>
-            <div className="bg-dark bg-opacity-75 row text-center p-3 mt-5">
+            <div className=" row text-center p-3 mt-5">
                 <div className="col-sm-12 col-md-6 col-lg-3">
                     <h3>Content creators</h3>
-                    <h6>Images by Unsplash</h6>
-                    <Creators></Creators>
+                    {/* content creators go here */}
+                    <Creator name="Unsplash" url="https://unsplash.com/"></Creator>
+                    <Creator name="Patrick Tomasso" url="https://unsplash.com/@impatrickt"></Creator>
+                    <Creator name="Julienne Alviar" url="https://unsplash.com/@julesea"></Creator>
+                    <Creator name="František G." url="https://unsplash.com/@fandyus"></Creator>
                     <hr className="d-sm-block d-md-none" />
                 </div>
                 <div className="col-sm-12 col-md-6 col-lg-3">

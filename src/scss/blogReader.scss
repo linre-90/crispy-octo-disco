@@ -1,0 +1,29 @@
+
+
+$main_background_color: #080708;
+$main_foreground_color: #DF2935;
+$main_power_color_blue: #3772FF;
+$main_power_color_yellow: #FDCA40;
+$main_power_color_silver: #E6E8E6;
+
+$dark-mode-bgr: rgb(24, 23, 23);
+$header-text-dark: #DF2935;
+$bread-text-dark:rgb(212, 207, 207);
+
+
+#reader.dark{
+    background-color: rgb(24, 23, 23);
+    color: rgb(212, 207, 207);
+    h1, h2, h3, h4, h5, h6{
+        color: $main_foreground_color
+    }
+
+}
+
+#reader.light{
+    background-color: rgb(230, 230, 230);
+    color: rgb(26, 25, 25);
+    h1, h2, h3, h4, h5, h6{
+        color: $main_foreground_color
+    }
+}

@@ -7,6 +7,7 @@ import {Footer} from "../components/stateless/footer/footer";
 import {Spinner} from "../components/stateless/spinner/spinner";
 import {Headline} from "../components/stateless/headline/headline";
 import {BrianBot} from "../components/statefull/brian/brian";
+import { StaticImage } from "gatsby-plugin-image";
 
 const Contact:React.FC = ():React.ReactElement => {
     const [timeStamp, setTimeStamp] = useState(Date.now());
@@ -94,8 +95,9 @@ const Contact:React.FC = ():React.ReactElement => {
  
     return (
         <div>
+            <StaticImage className="mobile_bgr d-md-none" src= "../images/mobile/Contact.jpg" quality={50}  alt="Image of the typewriter" placeholder="blurred"></StaticImage>
             <NavMenu header="Contact" innerHeader="Pages" navLinks={getAddresses(1)}></NavMenu>
-            <div className="container mt-5 col-12 col-lg-6 col-xl-4">
+            <div className="container bg-dark bg-opacity-75 py-5 col-12 col-lg-6 col-xl-4">
                 <div className="row">
                     <Headline hSize={1} text="Contact form"></Headline>
                 </div>
@@ -227,9 +229,9 @@ const Contact:React.FC = ():React.ReactElement => {
                 : 
                     <div><Spinner size="3x" align="center"></Spinner></div>
                 }
+                <BrianBot></BrianBot>
+                <Footer></Footer>
             </div>
-            <BrianBot></BrianBot>
-            <Footer></Footer>
         </div>
     )
     

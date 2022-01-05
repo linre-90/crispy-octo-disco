@@ -41,6 +41,7 @@ $form-select-color: $main_power_color_yellow;
 $input-placeholder-color: $main_power_color_yellow;
 $form-check-input-bg: $main_power_color_yellow;
 $input-group-addon-color:               $main_background_color;
+$badge-color: $main_background_color;
 
 
 
@@ -65,6 +66,8 @@ $input-group-addon-color:               $main_background_color;
 @import "./bootstrap/forms/form-select";
 @import "./bootstrap/forms/form-check";
 @import "./bootstrap/card";
+@import "./bootstrap/badge";
+@import "./bootstrap/dropdown";
 
 
 
