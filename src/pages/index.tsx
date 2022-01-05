@@ -1,11 +1,11 @@
 import React from "react"
-import { Headline } from "../components/stateless/headline/headline";
-import { Cta } from "../components/stateless/cta/callToAction";
-import { NavMenu } from "../components/stateless/navMenu/navMenu";
-import { BrianBot } from "../components/statefull/brian/brian";
+import { Headline } from "../components/projectComp/headline/headline";
+import { Cta } from "../components/projectComp/cta/callToAction";
+import { NavMenu } from "../components/projectComp/navMenu/navMenu";
+import { BrianBot } from "../components/external/brian/brian";
 import { Helmet } from "react-helmet";
 import { StaticImage } from "gatsby-plugin-image";
-import { Footer } from "../components/stateless/footer/footer";
+import { Footer } from "../components/projectComp/footer/footer";
 import { getAddresses } from "../Addresses";
 
 /**

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {Link} from "gatsby";
 import {FormValidator, formValidationResult} from "../FormValidator";
-import { NavMenu } from "../components/stateless/navMenu/navMenu"; 
+import { NavMenu } from "../components/projectComp/navMenu/navMenu"; 
 import {getAddresses} from "../Addresses"
-import {Footer} from "../components/stateless/footer/footer";
-import {Spinner} from "../components/stateless/spinner/spinner";
-import {Headline} from "../components/stateless/headline/headline";
-import {BrianBot} from "../components/statefull/brian/brian";
+import {Footer} from "../components/projectComp/footer/footer";
+import {Spinner} from "../components/projectComp/spinner/spinner";
+import {Headline} from "../components/projectComp/headline/headline";
+import {BrianBot} from "../components/external/brian/brian";
 import { StaticImage } from "gatsby-plugin-image";
 
 const Contact:React.FC = ():React.ReactElement => {

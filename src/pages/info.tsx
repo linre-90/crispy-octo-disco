@@ -1,5 +1,5 @@
 import React from "react";
-import { NotReady } from "../components/stateless/NotReady/notReady";
+import { NotReady } from "../components/projectComp/NotReady/notReady";
 
 const Info:React.FC = ():React.ReactElement => {
     const componentReady = false;

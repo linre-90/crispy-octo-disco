@@ -1,9 +1,9 @@
 import React from "react";
-import { NavMenu } from "../components/stateless/navMenu/navMenu";
+import { NavMenu } from "../components/projectComp/navMenu/navMenu";
 import { getAddresses } from "../Addresses";
-import { PortfolioCard } from "../components/stateless/portfolioCard/portfolioCard";
+import { PortfolioCard } from "../components/projectComp/portfolioCard/portfolioCard";
 import { graphql, useStaticQuery } from "gatsby";
-import {Footer} from "../components/stateless/footer/footer";
+import {Footer} from "../components/projectComp/footer/footer";
 import { StaticImage } from "gatsby-plugin-image";
 
 /**

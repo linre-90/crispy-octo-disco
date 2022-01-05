@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useStaticQuery, graphql } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRobot } from "@fortawesome/free-solid-svg-icons";
-import { Backdrop } from "../../stateless/backdrop/Backdrop";
+import { Backdrop } from "../../projectComp/backdrop/Backdrop";
 
 
 
