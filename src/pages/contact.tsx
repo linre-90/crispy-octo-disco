@@ -36,7 +36,6 @@ const Contact:React.FC = ():React.ReactElement => {
                 }
             }
         )
-
         if(response.status == 200){ // ok
             window.location.href = "/formSend";
         }
@@ -52,6 +51,7 @@ const Contact:React.FC = ():React.ReactElement => {
     const validate:Function = () => {
         let validation: formValidationResult;
         const fillTime = Date.now() - timeStamp
+        console.log(topic);
         if(!wantToSubmitemail){
             validation = formHandler.validate({
                 headline: header, 

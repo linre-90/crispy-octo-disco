@@ -15,7 +15,10 @@ const BrianInterface = (props) => {
                 body: JSON.stringify(payload)
             }
         )
-        return response.json();
+
+        if(response.status !== 200){
+            window.location.href = "/errorPage";
+        }
     }
 
     return (
@@ -36,10 +39,9 @@ const BrianInterface = (props) => {
                             name: "This migth be helpfull: " + props.suggestionList[0].name,
                             linkUrl: props.suggestionList[0].url
                         };
-                        logSearchedWord(question.name).catch(error => { window.location.href = "/errorPage"; })
+                        logSearchedWord(question.name);
                         props.sendMsg([question, response]);
                         e.target.value = "";
-
                     }
                     props.setInputFunction(e.target.value);
                     props.updateSuggestState(props.input);

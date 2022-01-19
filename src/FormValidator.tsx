@@ -55,7 +55,7 @@ export class FormValidator {
         if(this.name !== values.name){
             return {isValid: false, message: "Modified invisible field you are a bot."}
         }
-
+        console.log(values.topic);
         let {error, value} = this.validationSchema.validate({
             headline: values.headline, 
             topic: values.topic, 
