@@ -39,7 +39,6 @@ const Portfolio: React.FC = ({location}:any): React.ReactElement => {
     `);
 
     useEffect(() => {
-        // get all spans -> parse data-tags to tag -> loop through -> if data-tag == tag break -> scroll to view
         try {
             if(location.search){
                 let tagSearch:string = location.search;
