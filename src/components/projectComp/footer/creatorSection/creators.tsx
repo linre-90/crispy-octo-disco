@@ -13,7 +13,7 @@ type creatorProp = {
 export const Creator:FC<creatorProp> = (props:creatorProp):ReactElement => {
     return(
         <div>
-            <p key={props.name} >- <a href={props.url}>{props.name}</a> -</p>
+            <p key={props.name} >- <a className="text-info" href={props.url}>{props.name}</a> -</p>
         </div>
     )
 }

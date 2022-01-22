@@ -4,7 +4,6 @@ import { Cta } from "../components/projectComp/cta/callToAction";
 import { NavMenu } from "../components/projectComp/navMenu/navMenu";
 import { BrianBot } from "../components/external/brian/brian";
 import { Helmet } from "react-helmet";
-import { StaticImage } from "gatsby-plugin-image";
 import { Footer } from "../components/projectComp/footer/footer";
 import { getAddresses } from "../Addresses";
 
@@ -16,14 +15,11 @@ const IndexPage: React.FC = (): React.ReactElement => {
 	return (
 		<div>
 			<NavMenu header="Navigation" innerHeader="Pages" navLinks={ getAddresses(0) }></NavMenu>
-
-			<div className="container py-5 bg-dark bg-opacity-75">
-				<StaticImage className="mobile_bgr d-md-none" src="../images/mobile/Home.jpg" alt="Mobile industrial background image" quality={50} placeholder="blurred"></StaticImage>
+			<div className="container py-5 bg-opacity-75">
 				{/* bootstrap javascript and popper */}
 				<Helmet>
 					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossOrigin="anonymous"></script>
 				</Helmet>
-				
 				<div>
 					<div className="row">
 						<Headline text="My portfolio" hSize={1}></Headline>

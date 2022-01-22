@@ -4,7 +4,6 @@ import { getAddresses } from "../Addresses";
 import { PortfolioCard } from "../components/projectComp/portfolioCard/portfolioCard";
 import { graphql, useStaticQuery } from "gatsby";
 import {Footer} from "../components/projectComp/footer/footer";
-import { StaticImage } from "gatsby-plugin-image";
 
 /**
  * Page component to display programmaticaly created  portfolio/* slug sites as bootstrap card grid .
@@ -38,7 +37,6 @@ const Portfolio: React.FC = (): React.ReactElement => {
 
     return (
         <div>
-            <StaticImage className="mobile_bgr d-md-none" src="../images/mobile/Portfolio.jpg" alt="Image stylized wall" quality={50} placeholder="blurred"></StaticImage>
             <NavMenu header="Portfolio" innerHeader="Pages" navLinks={getAddresses(3)}></NavMenu>
             <div className="container overflow-hidden bg-dark bg-opacity-75">
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">

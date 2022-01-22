@@ -19,7 +19,7 @@ type cardProps = {
 export const PortfolioCard:FC<cardProps> = (props:cardProps):ReactElement => {
     return (
         <div className="p-3">
-            <div className="card bg-dark border-secondary">
+            <div className="card bg-secondary border-secondary">
                 <GatsbyImage image={getImage(props.img)} alt="Thumbnail for portfolio project."></GatsbyImage>
                 <div className="card-body">
                     <h4 className="card-title">{props.appName}</h4>
@@ -27,7 +27,7 @@ export const PortfolioCard:FC<cardProps> = (props:cardProps):ReactElement => {
                     <h5>
                     {
                         props.tags.map((tag) => {
-                            return <span className="badge bg-secondary me-2 mb-2">{tag}</span>
+                            return <span className="badge bg-warning me-2 mb-2">{tag}</span>
                         })
                     }
                     </h5>

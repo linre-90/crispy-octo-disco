@@ -37,7 +37,7 @@ const NavMenu: React.FC<navMenuProps> = (props: navMenuProps): ReactElement => {
         <div  className="sticky-top" >
             {navBarVisible && <div className="d-xl-none"><Backdrop></Backdrop></div>}
             <div id="navmenuContainer" ref={navMenuRef} className="d-xl-none">
-                <div className="bg-dark p-4">
+                <div className="bg-primary p-4">
                     <h5 className="h4">{props.innerHeader}</h5>
                     <div className="navbar-nav">
                         <ul className="navlist">
@@ -59,9 +59,8 @@ const NavMenu: React.FC<navMenuProps> = (props: navMenuProps): ReactElement => {
                     </div>
                 </div>
             </div>
-        <nav className="navbar navbar-dark bg-dark d-xl-none">
+        <nav className="navbar navbar-light d-xl-none">
             <div className="container-fluid">
-
                 <h1 className="navbar-brand mb-0 h1">{props.header}</h1>
                 <button onClick={ () => setnavBarVisible(!navBarVisible) } className="navbar-toggler ms-auto" type="button" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

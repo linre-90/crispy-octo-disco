@@ -12,6 +12,6 @@ type sitemapProps = {
     text: string
 }
 
-const SiteMapLink:FC<sitemapProps> = (props:sitemapProps):ReactElement => <p>- <Link to={props.url}>{props.text}</Link> -</p>
+const SiteMapLink:FC<sitemapProps> = (props:sitemapProps):ReactElement => <p>- <Link className="text-info" to={props.url}>{props.text}</Link> -</p>
 
 export {sitemapProps, SiteMapLink}

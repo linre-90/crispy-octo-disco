@@ -9,39 +9,44 @@
 $background_fallback: black;
 $text_fallback_color: white;
 
-$main_background_color: #080708;
-$main_foreground_color: #DF2935;
-$main_power_color_blue: #3772FF;
-$main_power_color_yellow: #FDCA40;
-$main_power_color_silver: #E6E8E6;
+$main_color: #BDC696;
+$secondary_color: #351431;
+$power_color_brown: #775253;
+$power_color_gray: #D1D3C4;
+$power_color_white: #DFE0DC;
+
 
 // **** fonts ****
 $header_font: Baumans, cursive;
-
 $text_font: Quicksand, sans serif;
 
 
 // **** override bootstrap variables ****
-$navbar-dark-brand-color: $main_foreground_color;
-$navbar-dark-brand-hover-color: $navbar-dark-brand-color;
+$primary:    $main_color;
+$secondary:  $secondary_color;
+$info:       $power_color_brown;
+$warning:    $power_color_white;
+$danger:     $power_color_gray;
+$body-bg:    $main_color;
 
-$nav-link-color:$main_power_color_silver;
-$nav-link-hover-color: $main_power_color_yellow;
-$form-text-color: $main_power_color_silver;
+// nav
+$navbar-light-brand-color: $power_color_brown;
+$navbar-dark-brand-hover-color:$navbar-light-brand-color;
+$nav-link-color:$power_color_brown;
+$nav-link-hover-color: $power_color_gray;
+$form-text-color: $power_color_white;
+// input/form
+$input-color: $power_color_white;
+$form-select-color: $power_color_gray;
+$input-placeholder-color: $power_color_gray;
+$form-check-input-bg: $power_color_gray;
+$input-group-addon-color:               $main_color;
+//badge
+$badge-color: $power_color_brown;
+// backdrop
+$backdrop_color: $power_color_brown;
+//button
 
-$primary:    $main_foreground_color;
-$secondary:  $main_power_color_yellow;
-$info:       $main_power_color_blue;
-$warning:    $main_power_color_silver;
-$dark:       $main_background_color;
-$body-bg:    $dark;
-
-$input-color: $main_power_color_silver;
-$form-select-color: $main_power_color_yellow;
-$input-placeholder-color: $main_power_color_yellow;
-$form-check-input-bg: $main_power_color_yellow;
-$input-group-addon-color:               $main_background_color;
-$badge-color: $main_background_color;
 
 
 
@@ -79,9 +84,9 @@ body{
   box-sizing: border-box;
   font-family: $text_font;
   background-color: $background_fallback;
-  background-color: $main_background_color;
+  background-color: $main_color;
   color: $text_fallback_color;
-  color: $main_foreground_color;
+  color: $secondary_color;
   background-repeat: no-repeat;
 }
 
@@ -116,7 +121,7 @@ h1, h2, h3, h4, h5, h6{
 
 .active{
   font-weight: bold;
-  color: red;
+  color: $power_color_white;
   span{
       margin-left: 10px;
   }
@@ -143,7 +148,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .backDrop{
-  background-color: $main_background_color;
+  background-color: $backdrop_color;
   opacity: 80%;
   position: fixed;
   left: 0px;
