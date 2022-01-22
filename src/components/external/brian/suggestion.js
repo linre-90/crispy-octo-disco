@@ -14,16 +14,16 @@ const Suggestion = (props) => {
       <div className="col-6">
         <ul className="list-group">
         <div>
-          <span><i>{props.dataList.length > 0 ? <div><FontAwesomeIcon icon={faRobot}></FontAwesomeIcon> Do you mean?</div> : "" }</i></span>
+          <span><i>{props.dataList.length > 0 ? <div><FontAwesomeIcon color="" icon={faRobot}></FontAwesomeIcon> Do you mean?</div> : "" }</i></span>
           {props.dataList.map((item) => {
             if (index === 0) {
               index++;
               return (
                   <li
-                    className="list-group-item active pt-0 pb-0 mt-0 mb-0 font-italic"
+                    className="list-group-item active pt-0 pb-0 mt-0 mb-0 font-italic bg-info"
                     key={uuidv4()}
                   >
-                    <p className="pt-0 pb-0 mt-0 mb-0 text-end"><i>{item.name}</i></p>
+                    <p className="pt-0 pb-0 mt-0 mb-0 text-end bg-info"><i>{item.name}</i></p>
                   </li>
               );
             } else {

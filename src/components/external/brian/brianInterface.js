@@ -5,10 +5,10 @@ const BrianInterface = (props) => {
     return (
         <div className="input-group mb-3">
             <div className="input-group-prepend">
-                <span className="input-group-text">Ask@Brian</span>
+                <span className="input-group-text bg-danger text-info">Ask@Brian</span>
             </div>
             <input
-                className="form-control"
+                className="form-control bg-warning"
                 default=""
                 onKeyDown={(e) => {
                     if (e.key === "Enter" && props.suggestionList.length > 0) {

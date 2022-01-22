@@ -125,7 +125,7 @@ export const BrianBot = () => {
         <div>
             {backdropActive && <Backdrop></Backdrop>}
             <div ref={brianRef} id="brianWrapper">
-                <div className="bg-secondary rounded p-3" id="">
+                <div className="bg-primary rounded p-3" id="">
                     <div>
                         {/* message field */}
                         <div className="scrollField">

@@ -7,9 +7,9 @@ const Message = (props) => {
   let layout = "card mb-3 border p-2 ";
 
   if (!props.human) {
-    layout += "bg-warning ms-5 border-warning rounded";
+    layout += "bg-danger ms-5 border-secondary rounded";
   } else {
-    layout += "bg-dark me-5 border-dark rounded";
+    layout += "bg-danger me-5 border-secondary rounded";
   }
 
   return (
@@ -17,17 +17,17 @@ const Message = (props) => {
       <div className="row g-0">
         <div className="col-2">
           {!props.human ? (
-            <FontAwesomeIcon icon={faRobot}></FontAwesomeIcon>
+            <FontAwesomeIcon color="#351431" icon={faRobot}></FontAwesomeIcon>
           ) : (
-            <FontAwesomeIcon icon={faUserAlt}></FontAwesomeIcon>
+            <FontAwesomeIcon color="#351431" icon={faUserAlt}></FontAwesomeIcon>
           )}
         </div>
-        <div className="col-10">
-          <div className="card-body">
+        <div className="col-10 ">
+          <div className="card-body bg-warning rounded">
             <p className="card-text">
               {props.text}{" "}
               {props.linkUrl != null && (
-                <a href={props.linkUrl}>
+                <a className="text-info" href={props.linkUrl}>
                   <i>link</i>
                 </a>
               )}
