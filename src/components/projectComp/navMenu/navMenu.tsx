@@ -55,11 +55,11 @@ const NavMenu: React.FC<navMenuProps> = (props: navMenuProps): ReactElement => {
                             </li>)
                             })}
                         </ul>
-                        <button className="btn btn-primary" onClick={ () => setnavBarVisible(!navBarVisible) } type="button">Close</button>
+                        <button className="btn btn-secondary" onClick={ () => setnavBarVisible(!navBarVisible) } type="button">Close</button>
                     </div>
                 </div>
             </div>
-        <nav className="navbar navbar-light d-xl-none">
+        <nav className="navbar navbar-light d-xl-none border-bottom border-info">
             <div className="container-fluid">
                 <h1 className="navbar-brand mb-0 h1">{props.header}</h1>
                 <button onClick={ () => setnavBarVisible(!navBarVisible) } className="navbar-toggler ms-auto" type="button" aria-expanded="false" aria-label="Toggle navigation">

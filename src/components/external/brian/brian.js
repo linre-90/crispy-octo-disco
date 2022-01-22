@@ -160,12 +160,11 @@ export const BrianBot = () => {
                         </div>
                     </div>
                 </div>
-                
             </div>
             <div className="chatbotButton">
 				<button
                     ref={brianButton}
-					className="btn btn-primary btn-floating mb-0 mt-0"
+					className="btn btn-secondary btn-floating mb-0 mt-0"
 					type="button"
 					onClick={() => {
 						setbackdropActive(!backdropActive);
