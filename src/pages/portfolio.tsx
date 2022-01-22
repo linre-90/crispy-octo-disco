@@ -5,6 +5,7 @@ import { PortfolioCard } from "../components/projectComp/portfolioCard/portfolio
 import { graphql, useStaticQuery } from "gatsby";
 import {Footer} from "../components/projectComp/footer/footer";
 import { useEffect } from "react";
+import {BrianBot} from "../components/external/brian/brian";
 
 
 /**
@@ -89,6 +90,7 @@ const Portfolio: React.FC = ({location}:any): React.ReactElement => {
                         })
                     }
                 </div>
+                <BrianBot></BrianBot>
                 <Footer></Footer>
             </div>
         </div>
