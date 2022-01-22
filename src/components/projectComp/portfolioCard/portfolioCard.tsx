@@ -28,9 +28,7 @@ export const PortfolioCard:FC<cardProps> = (props:cardProps):ReactElement => {
                     {
                         props.tags.map((tag) => {
                             return (
-                                <span data-tag={tag} key={uuidv4()} className="badge bg-danger me-2 mb-2">{tag}</span>
-                                
-
+                                <span data-tag={tag.toLowerCase()} key={uuidv4()} className="badge bg-danger me-2 mb-2">{tag}</span>
                             )
                         })
                     }

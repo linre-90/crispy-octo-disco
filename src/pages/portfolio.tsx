@@ -4,6 +4,7 @@ import { getAddresses } from "../Addresses";
 import { PortfolioCard } from "../components/projectComp/portfolioCard/portfolioCard";
 import { graphql, useStaticQuery } from "gatsby";
 import {Footer} from "../components/projectComp/footer/footer";
+import { useEffect } from "react";
 
 
 /**
@@ -36,7 +37,36 @@ const Portfolio: React.FC = ({location}:any): React.ReactElement => {
       }
     `);
 
-    console.log(location);
+    useEffect(() => {
+        // get all spans -> parse data-tags to tag -> loop through -> if data-tag == tag break -> scroll to view
+        try {
+            if(location.search){
+                let tagSearch:string = location.search;
+                // parse search url to array containin all tags
+                tagSearch = tagSearch.replace("?tags=", "");
+                let tags:string[] = tagSearch.split("-");
+                if(document){
+                    // get all spans, spans contains custom data-tag attribute
+                    let elements:HTMLCollectionOf<HTMLSpanElement> = document.getElementsByTagName("span");
+                    // search if any span contains tag
+                    for (let i = 0; i < tags.length; i++) {
+                        let tagFound:boolean = false;
+                        for (let j = 0; j < elements.length; j++) {
+                            if(elements[j].getAttribute("data-tag")){
+                                if(elements[j].getAttribute("data-tag").includes(tags[i])){
+                                    elements[j].scrollIntoView({behavior: "smooth", block: "start"});
+                                    tagFound = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if(tagFound){ break;}
+                    }
+                }
+            }
+        } catch (error) {console.log(error)}
+    },[])
+    
 
     return (
         <div>
