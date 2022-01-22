@@ -19,19 +19,19 @@ type cardProps = {
 export const PortfolioCard:FC<cardProps> = (props:cardProps):ReactElement => {
     return (
         <div className="p-3">
-            <div className="card bg-secondary border-secondary">
+            <div className="card bg-info border-secondary">
                 <GatsbyImage image={getImage(props.img)} alt="Thumbnail for portfolio project."></GatsbyImage>
                 <div className="card-body">
-                    <h4 className="card-title">{props.appName}</h4>
-                    <p className="card-text">{props.appDescription}</p>
+                    <h4 className="card-title text-danger">{props.appName}</h4>
+                    <p className="card-text text-danger">{props.appDescription}</p>
                     <h5>
                     {
                         props.tags.map((tag) => {
-                            return <span className="badge bg-warning me-2 mb-2">{tag}</span>
+                            return <span className="badge bg-danger me-2 mb-2">{tag}</span>
                         })
                     }
                     </h5>
-                    <Link className="btn btn-primary" to={props.url}>Check out</Link>
+                    <Link className="btn btn-secondary" to={props.url}>Check out</Link>
                 </div>
             </div>
         </div>

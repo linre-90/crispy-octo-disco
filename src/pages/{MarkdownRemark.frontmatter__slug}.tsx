@@ -29,12 +29,15 @@ export default function Template({ data }: any): React.ReactElement {
 				<p>
 					{
 						frontmatter.tags.map((tag) => {
-							return <span className="badge bg-secondary me-2 mb-2">{tag}</span>
+							return <span className="badge bg-primary me-2 mb-2">{tag}</span>
 						})
 					}
 				</p>
 				<p><small>{frontmatter.date}</small></p>
 				<div dangerouslySetInnerHTML={{ __html: html }}></div>
+				<div className="pt-5 pb-5">
+					<hr />
+				</div>
 			</div>
 		</div>
 	);

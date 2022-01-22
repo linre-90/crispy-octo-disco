@@ -38,7 +38,7 @@ const Portfolio: React.FC = (): React.ReactElement => {
     return (
         <div>
             <NavMenu header="Portfolio" innerHeader="Pages" navLinks={getAddresses(3)}></NavMenu>
-            <div className="container overflow-hidden bg-dark bg-opacity-75">
+            <div className="container overflow-hidden">
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                     {
                         portfolioData.allMarkdownRemark.edges.map((obj) => {

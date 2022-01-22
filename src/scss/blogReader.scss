@@ -1,29 +1,22 @@
-
-
-$main_background_color: #080708;
-$main_foreground_color: #DF2935;
-$main_power_color_blue: #3772FF;
-$main_power_color_yellow: #FDCA40;
-$main_power_color_silver: #E6E8E6;
-
-$dark-mode-bgr: rgb(24, 23, 23);
-$header-text-dark: #DF2935;
-$bread-text-dark:rgb(212, 207, 207);
+$main_color: #BDC696;
+$secondary_color: #351431;
+$power_color_brown: #775253;
+$power_color_gray: #D1D3C4;
+$power_color_white: #DFE0DC;
 
 
 #reader.dark{
-    background-color: rgb(24, 23, 23);
-    color: rgb(212, 207, 207);
+    background-color: $power_color_brown;
+    color: $power_color_white;
     h1, h2, h3, h4, h5, h6{
-        color: $main_foreground_color
+        color: $power_color_gray
     }
-
 }
 
 #reader.light{
-    background-color: rgb(230, 230, 230);
-    color: rgb(26, 25, 25);
+    background-color: $power_color_gray;
+    color: $power_color_brown;
     h1, h2, h3, h4, h5, h6{
-        color: $main_foreground_color
+        color: $secondary_color
     }
 }
