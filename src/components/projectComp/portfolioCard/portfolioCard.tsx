@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import {Link} from "gatsby";
 import {GatsbyImage, getImage, IGatsbyImageData} from "gatsby-plugin-image";
-
+import {v4 as uuidv4} from "uuid";
 
 type cardProps = {
     appName: string,
@@ -27,7 +27,11 @@ export const PortfolioCard:FC<cardProps> = (props:cardProps):ReactElement => {
                     <h5>
                     {
                         props.tags.map((tag) => {
-                            return <span className="badge bg-danger me-2 mb-2">{tag}</span>
+                            return (
+                                <span data-tag={tag} key={uuidv4()} className="badge bg-danger me-2 mb-2">{tag}</span>
+                                
+
+                            )
                         })
                     }
                     </h5>

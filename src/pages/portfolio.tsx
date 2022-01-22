@@ -5,11 +5,12 @@ import { PortfolioCard } from "../components/projectComp/portfolioCard/portfolio
 import { graphql, useStaticQuery } from "gatsby";
 import {Footer} from "../components/projectComp/footer/footer";
 
+
 /**
  * Page component to display programmaticaly created  portfolio/* slug sites as bootstrap card grid .
  * @returns Gatsby page
  */
-const Portfolio: React.FC = (): React.ReactElement => {
+const Portfolio: React.FC = ({location}:any): React.ReactElement => {
     const portfolioData = useStaticQuery(graphql`
     query portfolioPages {
         allMarkdownRemark(filter: {frontmatter: {type: {eq: "portfolio"}}}) {
@@ -34,6 +35,8 @@ const Portfolio: React.FC = (): React.ReactElement => {
         }
       }
     `);
+
+    console.log(location);
 
     return (
         <div>
