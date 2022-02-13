@@ -28,6 +28,7 @@ export const Footer:FC = ():ReactElement => {
                     <NormalLink text="Firebase" url="https://firebase.google.com/"></NormalLink>
                     <NormalLink text="Cloudflare" url="https://www.cloudflare.com/"></NormalLink>
                     <NormalLink text="Gsap" url="https://greensock.com/"></NormalLink>
+                    <NormalLink text="Font awesome" url="https://fontawesome.com/"></NormalLink>
                 </FooterSection>
                 <hr className="d-none d-md-block d-lg-none"></hr>
                 <FooterSection header="Social">

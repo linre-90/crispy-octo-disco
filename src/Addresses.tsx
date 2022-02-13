@@ -19,6 +19,7 @@
  * - info
  * - portfolio
  * - blog
+ * - privacypolicy
  * @param activeindex - index of active page
  * @returns navMenuLinkData array
  */
