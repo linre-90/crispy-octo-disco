@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import { Footer } from "../components/projectComp/footer/footer";
 import { getAddresses } from "../Addresses";
 import {TextSection} from "../components/projectComp/textSection/textSection";
+import {CookieBanner} from "../components/projectComp/cookie/cookie";
 
 /**
  * Index page markup
@@ -16,6 +17,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 	return (
 		<div>
 			<NavMenu header="Navigation" innerHeader="Pages" navLinks={ getAddresses(0) }></NavMenu>
+			<CookieBanner></CookieBanner>
 			<div className="container py-5 bg-opacity-75">
 				{/* bootstrap javascript and popper */}
 				<Helmet>

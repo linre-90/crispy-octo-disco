@@ -4,6 +4,7 @@ import {getAddresses} from "../Addresses";
 import {TextSection} from "../components/projectComp/textSection/textSection";
 import {Footer} from "../components/projectComp/footer/footer";
 import {BrianBot} from "../components/external/brian/brian";
+import { CookieBanner } from "../components/projectComp/cookie/cookie";
 
 /**
  * Privacy policy page
@@ -12,6 +13,7 @@ import {BrianBot} from "../components/external/brian/brian";
 const PrivacyPolicy = () => {
     return (
         <div>
+            <CookieBanner></CookieBanner>
             <NavMenu header="Privacy policy" innerHeader="Privacy policy" navLinks={getAddresses(5)}></NavMenu>
             <div className="container py-5 bg-opacity-75">
                 <TextSection 

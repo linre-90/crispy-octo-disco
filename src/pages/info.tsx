@@ -5,6 +5,7 @@ import {TextSection} from "../components/projectComp/textSection/textSection";
 import {Cta} from "../components/projectComp/cta/callToAction";
 import {Footer} from "../components/projectComp/footer/footer";
 import {BrianBot} from "../components/external/brian/brian";
+import { CookieBanner } from "../components/projectComp/cookie/cookie";
 
 
 /**
@@ -15,6 +16,8 @@ import {BrianBot} from "../components/external/brian/brian";
 const Info:React.FC = ():React.ReactElement => {
     return (
         <div>
+            <CookieBanner></CookieBanner>
+
             <NavMenu header="Info" innerHeader="Info" navLinks={getAddresses(2)}></NavMenu>
             <div className="container py-5 bg-opacity-75">
                 <TextSection 

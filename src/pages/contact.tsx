@@ -7,6 +7,7 @@ import {Footer} from "../components/projectComp/footer/footer";
 import {Spinner} from "../components/projectComp/spinner/spinner";
 import {BrianBot} from "../components/external/brian/brian";
 import {TextSection} from "../components/projectComp/textSection/textSection";
+import { CookieBanner } from "../components/projectComp/cookie/cookie";
 
 const Contact:React.FC = ():React.ReactElement => {
     const [timeStamp, setTimeStamp] = useState(Date.now());
@@ -95,6 +96,8 @@ const Contact:React.FC = ():React.ReactElement => {
     return (
         <div>
             <NavMenu header="Contact" innerHeader="Pages" navLinks={getAddresses(1)}></NavMenu>
+            <CookieBanner></CookieBanner>
+
             <div className="container bg-opacity-75 py-5 col-12 col-lg-6 col-xl-4">
                 <TextSection
                     text="Send me questions, job offerings or just general feedback."

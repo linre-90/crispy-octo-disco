@@ -34,7 +34,7 @@ const NavMenu: React.FC<navMenuProps> = (props: navMenuProps): ReactElement => {
     }, [navBarVisible])
 
     return(
-        <div  className="sticky-top" >
+        <div className="" >
             {navBarVisible && <div className="d-xl-none"><Backdrop></Backdrop></div>}
             <div id="navmenuContainer" ref={navMenuRef} className="d-xl-none">
                 <div className="bg-primary p-4">

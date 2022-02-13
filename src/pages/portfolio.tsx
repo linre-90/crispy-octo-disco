@@ -6,6 +6,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import {Footer} from "../components/projectComp/footer/footer";
 import { useEffect } from "react";
 import {BrianBot} from "../components/external/brian/brian";
+import { CookieBanner } from "../components/projectComp/cookie/cookie";
 
 
 /**
@@ -70,6 +71,8 @@ const Portfolio: React.FC = ({location}:any): React.ReactElement => {
 
     return (
         <div>
+			<CookieBanner></CookieBanner>
+
             <NavMenu header="Portfolio" innerHeader="Pages" navLinks={getAddresses(3)}></NavMenu>
             <div className="container overflow-hidden">
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">

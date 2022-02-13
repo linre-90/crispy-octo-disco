@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FC, ReactElement } from "react";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CookieBanner } from "../components/projectComp/cookie/cookie";
 
 
 
@@ -25,6 +26,8 @@ const ErrorPage:FC = ():ReactElement => {
 
     return(
         <div className="container text-center mt-5">
+            <CookieBanner></CookieBanner>
+
             <FontAwesomeIcon icon={faExclamationTriangle} size="10x"></FontAwesomeIcon>
             <h2>Something went wrong</h2>
             <h4>Redirecting back to home in {timer} s.</h4>

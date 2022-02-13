@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import "../css/blogReader.css";
 import { useState } from "react";
+import { CookieBanner } from "../components/projectComp/cookie/cookie";
 
 export default function Template({ data }: any): React.ReactElement {
 	const { markdownRemark } = data;
@@ -19,6 +20,8 @@ export default function Template({ data }: any): React.ReactElement {
 
 	return (
 		<div>
+			<CookieBanner></CookieBanner>
+
 			<div className={"container " + theme} id="reader">
 				<div className="form-check form-switch switch-mobile d-lg-none">
                         <input className="form-check-input" type="checkbox" onChange={() => changeTheme()}/>

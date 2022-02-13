@@ -3,6 +3,7 @@ import { FC, ReactElement } from "react";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {gsap} from "gsap";
+import { CookieBanner } from "../components/projectComp/cookie/cookie";
 
 const FormSend:FC = ():ReactElement => {
     const [timer, setTimer] = useState(10);
@@ -28,6 +29,8 @@ const FormSend:FC = ():ReactElement => {
 
     return(
         <div className="container text-center mt-5">
+            <CookieBanner></CookieBanner>
+
             <div ref={iconRef}>
                 <FontAwesomeIcon icon={faEnvelope} size="8x"></FontAwesomeIcon>
             </div>
