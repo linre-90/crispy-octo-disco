@@ -146,11 +146,12 @@ const Contact:React.FC = ():React.ReactElement => {
                         {/* select topic */}
                         <div className="mb-3">
                             <label htmlFor="topic" className="form-label">Topic</label>
-                            <select className="form-select col-12" id="topic" required>
+                            <select onChange={(event) => setTopic(event.target.value)} className="form-select col-12" id="topic" required>
                                 <option defaultValue={null}>{formHandler.placeHolders.topic}</option>
                                 {
+                                    // TODO option on click not working in all browsers change logic to something else
                                     formHandler.getTopics().map((topic) => {
-                                        return <option onClick={() => setTopic(formHandler.getTopics().indexOf(topic))} key={topic} value={formHandler.getTopics().indexOf(topic)}>{topic}</option>
+                                        return <option key={topic} value={formHandler.getTopics().indexOf(topic)}>{topic}</option>
                                     })
                                 }
                             </select>
