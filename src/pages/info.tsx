@@ -27,7 +27,7 @@ const Info:React.FC = ():React.ReactElement => {
                     header="Education and motives"
                     headerSize={2}            
                 >
-                    <Cta text="CV can be found here" url="https://drive.google.com/file/d/19pMqlLBSzMGiudR-hj9BtA3GwrytMnZ0/view?usp=sharing" ></Cta>         
+                    <Cta text="CV can be found here" url={process.env.CV_ADDRESS} ></Cta>         
                 </TextSection>
                 <TextSection 
                     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum lorem sed dolor volutpat, eu ultrices nisi facilisis. Nam eget massa sed purus tempus imperdiet ac at ante. Nam et tristique leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut nunc libero, consectetur eu feugiat at, molestie id nisl. Mauris maximus et ex egestas vehicula. Vestibulum turpis velit, euismod ut lectus eget, tincidunt viverra velit. Mauris iaculis ullamcorper leo, in venenatis urna lacinia in."
