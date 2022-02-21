@@ -30,10 +30,10 @@ $danger:     $power_color_gray;
 $body-bg:    $main_color;
 
 // nav
-$navbar-light-brand-color: $power_color_brown;
+$navbar-light-brand-color: $secondary_color;
 $navbar-dark-brand-hover-color:$navbar-light-brand-color;
 $nav-link-color:$power_color_brown;
-$nav-link-hover-color: $power_color_gray;
+$nav-link-hover-color: $secondary_color;
 $form-text-color: $power_color_white;
 // input/form
 $input-color: $power_color_brown;
@@ -127,7 +127,7 @@ p{
 
 .active{
   font-weight: bold;
-  color: $power_color_white;
+  color: $secondary_color;
   span{
       margin-left: 10px;
   }

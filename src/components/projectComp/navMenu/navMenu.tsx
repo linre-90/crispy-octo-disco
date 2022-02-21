@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import type {navMenuLinkData} from "../../../Addresses"
 import { Backdrop } from "../backdrop/Backdrop";
+import {StaticImage} from "gatsby-plugin-image";
+
 
 /**
  * Navmenu prop types
@@ -67,6 +69,29 @@ const NavMenu: React.FC<navMenuProps> = (props: navMenuProps): ReactElement => {
                 </button>
             </div>
         </nav>
+
+        {/*DESKTOP NAV -------->*/}
+        <nav className="navbar navbar-expand-xl navbar-ligth d-none d-xl-block">
+            <div className="container-fluid">
+                <Link className="navbar-brand" to="/">
+                    <StaticImage src="../../../images/icon.png" width={50} height={50} alt="Main Logo" className="d-inline-block align-text-top"></StaticImage>
+                </Link>
+                <div className="collapse navbar-collapse">
+                    <ul className="navbar-nav ms-auto">
+                        {props.navLinks.map((x) => {
+                            return(
+                            <li key={x.text} className="nav-item px-3">
+                            <Link className={`nav-link ${x.active? "active": ""}`} to={x.url}> 
+                                {x.text}
+                            </Link>
+                        </li>)
+                        })}
+                    </ul>
+                </div>
+            </div>
+            
+        </nav>
+
     </div>
     );
 }
