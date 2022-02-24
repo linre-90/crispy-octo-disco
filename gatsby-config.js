@@ -52,7 +52,20 @@ module.exports = {
         name: `markdownImages`,
         path: `${__dirname}/src/images`,
       },
-    }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `briandata`,
+        path: `${__dirname}/src/data`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `jsondata`,
+      },
+    },
     
   ]
 };

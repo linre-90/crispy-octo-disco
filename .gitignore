@@ -44,5 +44,5 @@ package-lock.json
 
 src/images/*
 src/creators
-src/markdown
-
+src/markdown/*
+src/data/*
