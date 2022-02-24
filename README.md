@@ -14,3 +14,11 @@ Filled when remembered...
 - "/.env". No secrets stores just some key values for convenient  modification.
     - "IN_CASE_EMERGENCY_EMAIL",  contact info if error is countered.
     - "POST_FORM_URL", Url where contact form is posted.
+
+
+#### new colors
+- 3D3B8E
+- 6883BA
+- F9F9F9
+- E072A4
+- B0E298
