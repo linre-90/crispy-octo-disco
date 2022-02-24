@@ -15,7 +15,6 @@ $power_color_ligthblue: #6883BA;
 $power_color_green: #B0E298;
 $power_color_pink: #E072A4;
 
-
 // **** fonts ****
 $header_font: Baumans, cursive;
 $text_font: Quicksand, sans serif;
@@ -199,6 +198,35 @@ p{
   }
 }
 
+.frontPageSpecial{
+
+  &::first-letter{
+    text-decoration: underline;
+  } 
+  &:nth-child(odd){
+    &:hover{
+      color: $power_color_green;
+    }
+  }
+  &:nth-child(even){
+    &:hover{
+      color: $power_color_pink;
+    }
+  }
+
+  font-size: 4em;
+  font-family: $header_font;
+  margin-top: -20px;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  
+
+}
+
+
+
 // by id ----->
 #brianWrapper {
   position: fixed;
@@ -227,17 +255,40 @@ p{
   #brianWrapper {
     width: 65%;
   }
+  .frontPageSpecial{
+    font-size: 8em;
+    margin-top: -60px;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
     #brianWrapper {
       width: 50%;
     }
+    .frontPageSpecial{
+      font-size: 10em;
+      margin-top: -90px;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 }
 
 @media only screen and (min-width: 1400px) {
   #brianWrapper {
     width: 650px;
+  }
+  .frontPageSpecial{
+    .frontPageSpecial{
+      font-size: 10em;
+      margin-top: -120px;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 }
 

@@ -1,5 +1,4 @@
 import React from "react"
-import { Headline } from "../components/projectComp/headline/headline";
 import { Cta } from "../components/projectComp/cta/callToAction";
 import { NavMenu } from "../components/projectComp/navMenu/navMenu";
 import { BrianBot } from "../components/external/brian/brian";
@@ -8,6 +7,7 @@ import { Footer } from "../components/projectComp/footer/footer";
 import { getAddresses } from "../Addresses";
 import {TextSection} from "../components/projectComp/textSection/textSection";
 import {CookieBanner} from "../components/projectComp/cookie/cookie";
+import { FrontPageSpecial } from "../components/projectComp/headline/frontPageSpecial";
 
 /**
  * Index page markup
@@ -24,7 +24,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossOrigin="anonymous"></script>
 				</Helmet>
 				<div className="row">
-					<Headline text="Insert logo here" hSize={1}></Headline>
+					<FrontPageSpecial words={["Huge", "Font", "Cause", "I'm", "Hip"]}></FrontPageSpecial>
 				</div>
 				<TextSection 
 					header="Welcome" 
