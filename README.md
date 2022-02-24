@@ -11,9 +11,11 @@ Filled when remembered...
 ### Additional requirements
 - "/src/data" folder.  Contains json file for "chatbot".
 - "/src/markdown" folder.  Contains all markdown files to create dynamic pages from portfolio cards.
-- "/.env". No secrets stores just some key values for convenient  modification.
+- "/src/images" folder. Contains images.
+- "/.env". No secrets, stores just some key values for convenient  modification.
     - "IN_CASE_EMERGENCY_EMAIL",  contact info if error is countered.
     - "POST_FORM_URL", Url where contact form is posted.
+    - "CV_ADDRESS", link to cv
 
 
 #### new colors
