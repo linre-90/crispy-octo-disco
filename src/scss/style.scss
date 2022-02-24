@@ -39,8 +39,9 @@ $input-color: $secondary_color;
 $input-placeholder-color: $power_color_ligthblue;
 $input-group-addon-color: $main_color;
 $form-select-color: $power_color_ligthblue;
-$form-check-input-bg: $power_color_green;
-$form-check-input-checked-bg-color:$power_color_ligthblue;
+
+$form-check-input-bg: $power_color_ligthblue;
+$form-check-input-checked-bg-color:$power_color_green;
 //badge
 $badge-color: $power_color_ligthblue;
 // backdrop
@@ -220,9 +221,6 @@ p{
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
-
-  
-
 }
 
 
