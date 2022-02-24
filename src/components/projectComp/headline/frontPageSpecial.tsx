@@ -16,26 +16,12 @@ type frontPageSpecialProps = {
  */
 export const FrontPageSpecial : React.FC<frontPageSpecialProps> = (wordArray: frontPageSpecialProps):ReactElement => {
     return(
-        <div className="frontPageSpecialWrapper">
-            <div className="row ">
+        <div className="pb-3">
                 <p className="frontPageSpecial">{wordArray.words[0]}</p>
-            </div>
-            <div className="row">
-                <div className="col-4"></div>
-                <div className="col-8">
-                    <p className="frontPageSpecial">{wordArray.words[1]}</p>   
-                    <p className="frontPageSpecial">{wordArray.words[2]}</p>        
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-8"></div>
-                <div className="col-4">
-                    <p className="frontPageSpecial">{wordArray.words[3]}</p>    
-                </div>
-            </div>
-            <div className="row text-end">
-                <p className="frontPageSpecial">{wordArray.words[4]}</p>            
-            </div>
+                <p className="frontPageSpecial">{wordArray.words[1]}</p>   
+                <p className="frontPageSpecial text-center">{wordArray.words[2]}</p>    
+                <p className="frontPageSpecial">{wordArray.words[3]}</p>    
+                <p className="frontPageSpecial text-end">{wordArray.words[4]}</p>       
         </div>
     );
 }

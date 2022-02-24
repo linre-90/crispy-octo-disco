@@ -10,8 +10,7 @@ import {FooterSection} from "./section/footerSection";
  */
 export const Footer:FC = ():ReactElement => {
     return (
-        <div className="container rounded">
-            <hr className=""></hr>
+        <div className="container border-top border-end border-bottom border-info">
             <div className=" row text-center p-3 mt-5">
                 <FooterSection header="Sitemap">
                     <SiteMapLink text="Home" url="/" />
@@ -29,12 +28,10 @@ export const Footer:FC = ():ReactElement => {
                     <NormalLink text="Gsap" url="https://greensock.com/"></NormalLink>
                     <NormalLink text="Font awesome" url="https://fontawesome.com/"></NormalLink>
                 </FooterSection>
-                <hr className="d-none d-md-block d-lg-none"></hr>
                 <FooterSection header="Social">
                     <NormalLink text="Github" url="#"></NormalLink>
                     <NormalLink text="Twitter" url="#"></NormalLink>
                 </FooterSection>
-                <hr className="d-none d-md-block d-lg-none"></hr>
             </div>
 
         </div>
