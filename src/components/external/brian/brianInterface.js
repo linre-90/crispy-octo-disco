@@ -5,16 +5,16 @@ const BrianInterface = (props) => {
     return (
         <div className="input-group mb-3">
             <div className="input-group-prepend">
-                <span className="input-group-text bg-danger text-info">Ask@Brian</span>
+                <span className="input-group-text bg-danger text-primary rounded-0">Ask@Brian</span>
             </div>
             <input
-                className="form-control bg-warning"
+                className="form-control border-bottom-0 border-start-0 rounded-0"
                 default=""
                 onKeyDown={(e) => {
                     if (e.key === "Enter" && props.suggestionList.length > 0) {
                         const question = {
                             name: e.target.value,
-                            linkUrl: "null"
+                            linkUrl: null
                         };
                         const response = {
                             name: "This migth be helpfull: " + props.suggestionList[0].name,
