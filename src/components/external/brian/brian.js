@@ -162,14 +162,14 @@ export const BrianBot = () => {
             <div className="chatbotButton">
 				<button
                     ref={brianButton}
-					className="btn btn-secondary btn-floating mb-0 mt-0"
+					className="btn btn-danger btn-floating mb-0 mt-0"
 					type="button"
 					onClick={() => {
 						setbackdropActive(!backdropActive);
 					}}
 				>
-					<h5>
-						<FontAwesomeIcon icon={faRobot}></FontAwesomeIcon>  Brian
+					<h5 className="text-primary">
+						<b><FontAwesomeIcon icon={faRobot}></FontAwesomeIcon>  Brian</b>
 					</h5>
 				</button>
 			</div>
