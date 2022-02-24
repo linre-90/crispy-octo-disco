@@ -104,7 +104,7 @@ const Contact:React.FC = ():React.ReactElement => {
                     header="Contact form"
                     headerSize={1}
                     >
-                    <p className="text-info"><small><i>Please read <Link className="text-secondary" to='/privacypolicy'>privacy policy</Link> to learn more how your information is handled.</i></small></p>
+                    <p className="text-secondary"><small><i>Please read <Link className="text-secondary" to='/privacypolicy'>privacy policy</Link> to learn more how your information is handled.</i></small></p>
                 </TextSection>
                 <div className="row border-top border-info">
                     <div className="col-1 border-end border-info"></div>
@@ -219,7 +219,7 @@ const Contact:React.FC = ():React.ReactElement => {
                                     <div className="col-4"></div>
                                     <div className="col-4"></div>
                                     <div className="col-4">
-                                        <button type="button" style={{"width":"100%"}} className="btn btn-danger col-4" onClick={() => validate()}>Send</button>
+                                        <button type="button" style={{"width":"100%"}} className="btn btn-danger col-4 rounded-0" onClick={() => validate()}><span className="text-primary"><b>Send</b></span></button>
                                     </div>
                                 </div>
                             : 

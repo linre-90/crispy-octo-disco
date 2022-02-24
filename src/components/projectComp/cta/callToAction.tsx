@@ -18,8 +18,8 @@ interface CTAProps{
 export const Cta: React.FC<CTAProps> = (props: CTAProps): ReactElement => {
     return(
         <div className="col">
-            <Link type="button" className="btn btn-warning btn-lg" to={props.url}>
-                {props.text}
+            <Link type="button" className="btn btn-warning btn-lg rounded-0" to={props.url}>
+                <span className="text-primary"><b>{props.text}</b></span>
             </Link>
         </div>
     );
