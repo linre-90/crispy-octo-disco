@@ -17,9 +17,9 @@ export const TextSection:FC<sectionProps> = ({header, text, headerSize, children
     return(
         <div className="row ">
             <div className="col-1"></div>
-            <div className="col-10 align-self-center bg-danger pt-3 pb-5 rounded">
+            <div className="col-10 align-self-center pt-3 pb-5 border-info border border-start-0">
                 <Headline text={header} hSize={headerSize}></Headline>
-                <p className="text-info">{text}</p>
+                <p className="text-secondary">{text}</p>
                 {children}
             </div>
             <div className="col-1"></div>
