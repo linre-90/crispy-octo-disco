@@ -47,19 +47,19 @@ export const BrianBot = () => {
 
 
     // graphql query
-    const data = useStaticQuery(
+    const jsondata = useStaticQuery(
         graphql`
-        query brianQuery {
-            mongo_data {
-              keywords {
-                name
-                url
-              }
-              populars {
-                human
-                linkUrl
-                text
-              }
+        query jsonDataQuery {
+            dataJson {
+                populars {
+                    human
+                    text
+                    linkUrl
+                }
+                keywords {
+                    name
+                    url
+                }
             }
           }
         `
@@ -68,16 +68,14 @@ export const BrianBot = () => {
     useEffect(() => {
         // create keywords from mongo
         let initialKeywords = [];
-        data.mongo_data.keywords.forEach(element => {
+        jsondata.dataJson.keywords.forEach(element => {
             initialKeywords.push({name: element.name, url:element.url});
         });
-        
         // create messages from mongo
         let initialMessages = [];
-        data.mongo_data.populars.forEach(element => {
+        jsondata.dataJson.populars.forEach(element => {
             initialMessages.push({linkUrl: element.linkUrl, text:element.text, human:element.human});
         });
-        
         setKeywords(initialKeywords);
         setMessages(initialMessages);
         // eslint-disable-next-line react-hooks/exhaustive-deps

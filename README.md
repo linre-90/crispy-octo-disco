@@ -5,11 +5,11 @@ Purely designed for my needs and workflow. This read me is for my own memory mai
 Filled when remembered...
 
 *week/year.*
-- 8/2022 Added gatsby json plugin
+- 8/2022 Added gatsby json plugin and diverted chatbot to use local json files
 
 
 ### Additional requirements
-- "/src/data" folder.  Contains json files for "chatbot".
+- "/src/data" folder.  Contains json file for "chatbot".
 - "/src/markdown" folder.  Contains all markdown files to create dynamic pages from portfolio cards.
 - "/.env". No secrets stores just some key values for convenient  modification.
     - "IN_CASE_EMERGENCY_EMAIL",  contact info if error is countered.

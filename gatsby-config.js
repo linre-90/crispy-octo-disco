@@ -29,17 +29,6 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-source-graphql",
-      options: {
-        typeName: "Mongo",
-        fieldName: "mongo_data",
-        url: process.env.MONGO_GRAPHQL_API_ADDRESS,
-        headers: {
-          "apiKey": process.env.MONGO_GRAPHQL_API_KEY
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdownPortfolio`,
@@ -57,14 +46,12 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `briandata`,
-        path: `${__dirname}/src/data`,
+        path: `${__dirname}/src/data/`,
       },
     },
+    
     {
       resolve: `gatsby-transformer-json`,
-      options: {
-        typeName: `jsondata`,
-      },
     },
     
   ]

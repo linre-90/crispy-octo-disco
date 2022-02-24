@@ -23,7 +23,6 @@ export const Footer:FC = ():ReactElement => {
                 </FooterSection>
                 <FooterSection header="Build with">
                 <NormalLink text="Gatsby.js" url="https://www.gatsbyjs.com/"></NormalLink>
-                    <NormalLink text="MongoDB" url="https://www.mongodb.com/"></NormalLink>
                     <NormalLink text="TypeScript" url="https://www.typescriptlang.org/"></NormalLink>
                     <NormalLink text="Firebase" url="https://firebase.google.com/"></NormalLink>
                     <NormalLink text="Cloudflare" url="https://www.cloudflare.com/"></NormalLink>
