@@ -8,7 +8,13 @@ import {Spinner} from "../components/projectComp/spinner/spinner";
 import {BrianBot} from "../components/external/brian/brian";
 import {TextSection} from "../components/projectComp/textSection/textSection";
 import { CookieBanner } from "../components/projectComp/cookie/cookie";
+import {graphql, useStaticQuery} from "gatsby";
 
+
+/**
+ * Really messy contact page...
+ * @returns 
+ */
 const Contact:React.FC = ():React.ReactElement => {
     const [timeStamp, setTimeStamp] = useState(Date.now());
     const [postingForm, setpostingForm] = useState(false);
@@ -24,6 +30,19 @@ const Contact:React.FC = ():React.ReactElement => {
     const [email, setEmail] = useState(null);
     const [name, setName] = useState("-1");
     const [acceptedPolicy, setAcceptedPolicy] = useState(false);
+
+    
+    const contactPageText = useStaticQuery(graphql`
+        query contactPageText {
+            contactJson {
+            textBox {
+                head
+                text
+            }
+            }
+        }
+    `);
+
 
     const postForm:Function = async (data: any) => {
         let response = await fetch(
@@ -99,8 +118,8 @@ const Contact:React.FC = ():React.ReactElement => {
 
             <div className="container bg-opacity-75 py-5 col-12 col-lg-6 col-xl-4 pb-0">
                 <TextSection
-                    text="Send me questions, job offerings or just general feedback."
-                    header="Contact form"
+                    text={ contactPageText.contactJson.textBox.text }
+                    header={ contactPageText.contactJson.textBox.head }
                     headerSize={1}
                     >
                     <p className="text-secondary"><small><i>Please read <Link className="text-secondary" to='/privacypolicy'>privacy policy</Link> to learn more how your information is handled.</i></small></p>
