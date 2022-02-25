@@ -9,6 +9,7 @@ import {BrianBot} from "../components/external/brian/brian";
 import { CookieBanner } from "../components/projectComp/cookie/cookie";
 import {CommonSpecialHeadline} from "../components/projectComp/headline/commonSpecialHeader";
 import {Spacer} from "../components/projectComp/spacer/spacer";
+import { graphql, useStaticQuery } from "gatsby";
 
 
 /**
@@ -19,6 +20,28 @@ import {Spacer} from "../components/projectComp/spacer/spacer";
 const Info:React.FC = ():React.ReactElement => {
 
     const infoPageAnimationRef = useRef(null);
+    
+    const infoTexts = useStaticQuery(graphql`
+    query infoPageTexts {
+        infoJson {
+            box0 {
+              head
+              text
+            }
+            box1 {
+              head
+              text
+              cta
+            }
+            box2 {
+              head
+              text
+            }
+          }
+      }
+    `);
+      console.log(infoTexts);
+
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
@@ -66,12 +89,12 @@ const Info:React.FC = ():React.ReactElement => {
 
                 <div id="box0" className="animationLeftPositionX">
                     <TextSection 
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum lorem sed dolor volutpat, eu ultrices nisi facilisis. Nam eget massa sed purus tempus imperdiet ac at ante. Nam et tristique leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut nunc libero, consectetur eu feugiat at, molestie id nisl. Mauris maximus et ex egestas vehicula. Vestibulum turpis velit, euismod ut lectus eget, tincidunt viverra velit. Mauris iaculis ullamcorper leo, in venenatis urna lacinia in."
+                        text={ infoTexts.infoJson.box0.text }
                         header=""
                         headerSize={1}
                         flipChildOrder={true}
                     >
-                        <CommonSpecialHeadline header="Who am i"></CommonSpecialHeadline>
+                        <CommonSpecialHeadline header={infoTexts.infoJson.box0.head}></CommonSpecialHeadline>
                     </TextSection>
                 </div>
 
@@ -79,12 +102,12 @@ const Info:React.FC = ():React.ReactElement => {
 
                 <div id="box1" className="animationrigthPositionX">
                     <TextSection
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum lorem sed dolor volutpat, eu ultrices nisi facilisis. Nam eget massa sed purus tempus imperdiet ac at ante. Nam et tristique leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut nunc libero, consectetur eu feugiat at, molestie id nisl. Mauris maximus et ex egestas vehicula. Vestibulum turpis velit, euismod ut lectus eget, tincidunt viverra velit. Mauris iaculis ullamcorper leo, in venenatis urna lacinia in."
+                        text={ infoTexts.infoJson.box1.text }
                         header=""
                         headerSize={2}     
                         flipChildOrder={true}  
                     >
-                        <CommonSpecialHeadline header="Education"></CommonSpecialHeadline>
+                        <CommonSpecialHeadline header={ infoTexts.infoJson.box1.head }></CommonSpecialHeadline>
                         <a className="btn btn-danger btn-lg mb-4 mt-4" href={process.env.CV_ADDRESS} ><b className="text-primary">CV can be found here</b></a>         
                     </TextSection>
                 </div>
@@ -93,10 +116,9 @@ const Info:React.FC = ():React.ReactElement => {
 
                 <div id="box2" className="fromOpacityZero">
                     <TextSection 
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum lorem sed dolor volutpat, eu ultrices nisi facilisis. Nam eget massa sed purus tempus imperdiet ac at ante. Nam et tristique leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut nunc libero, consectetur eu feugiat at, molestie id nisl. Mauris maximus et ex egestas vehicula. Vestibulum turpis velit, euismod ut lectus eget, tincidunt viverra velit. Mauris iaculis ullamcorper leo, in venenatis urna lacinia in."
-                        header="Little more about me"
+                        text={ infoTexts.infoJson.box2.text }
+                        header={ infoTexts.infoJson.box2.head }
                         headerSize={2}
-                        flipChildOrder={true}
                     ></TextSection>
                 </div>
                 <Footer></Footer>
