@@ -9,3 +9,17 @@
 .animationFromZeroScale{
     transform: scale(0);
 }
+
+.animationLeftPositionX{
+    opacity: 0;
+    transform: translateX(-600px);
+}
+
+.animationrigthPositionX{
+    opacity: 0;
+    transform: translateX(600px);
+}
+
+.fromOpacityZero{
+    opacity: 0;
+}
