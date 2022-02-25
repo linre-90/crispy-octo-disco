@@ -224,6 +224,21 @@ p{
   padding-bottom: 0;
 }
 
+.commonSpecialHeadline{
+  &::first-letter{
+    text-decoration: underline;
+  } 
+
+  font-size: 4em;
+  font-family: $header_font;
+  border-right: 1px solid $power_color_ligthblue;
+  border-bottom: 1px solid $power_color_ligthblue;
+}
+
+.spacer{
+  margin-top: 650px;
+}
+
 
 
 
@@ -283,6 +298,10 @@ p{
     .chatbotButton{
       right: 50px;
       bottom: 50px;
+    }
+
+    .commonSpecialHeadline{
+      font-size: 6em;
     }
 }
 
