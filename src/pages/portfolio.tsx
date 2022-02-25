@@ -7,6 +7,8 @@ import {Footer} from "../components/projectComp/footer/footer";
 import { useEffect } from "react";
 import {BrianBot} from "../components/external/brian/brian";
 import { CookieBanner } from "../components/projectComp/cookie/cookie";
+import {gsap} from "gsap";
+import {ScrollToPlugin} from "gsap/ScrollToPlugin";
 
 
 /**
@@ -42,6 +44,7 @@ const Portfolio: React.FC = ({location}:any): React.ReactElement => {
     useEffect(() => {
         try {
             if(location.search){
+                gsap.registerPlugin(ScrollToPlugin);
                 let tagSearch:string = location.search;
                 // parse search url to array containin all tags
                 tagSearch = tagSearch.replace("?tags=", "");
@@ -55,7 +58,7 @@ const Portfolio: React.FC = ({location}:any): React.ReactElement => {
                         for (let j = 0; j < elements.length; j++) {
                             if(elements[j].getAttribute("data-tag")){
                                 if(elements[j].getAttribute("data-tag").includes(tags[i])){
-                                    elements[j].scrollIntoView({behavior: "smooth", block: "start"});
+                                    gsap.to(window, {duration:1, scrollTo:{y:elements[j], offsetY: 100}});
                                     tagFound = true;
                                     break;
                                 }
