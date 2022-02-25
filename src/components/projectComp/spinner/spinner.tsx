@@ -36,8 +36,8 @@ export const Spinner:FC<spinnerProps> = (props:spinnerProps):ReactElement => {
 
     return(
         <div className={alignment  + " mb-5"}>
-            <p ref={spinnerRef}>
-                <FontAwesomeIcon color="#351431" size={props.size} icon={faSpinner}></FontAwesomeIcon>
+            <p className="text-secondary" ref={spinnerRef}>
+                <FontAwesomeIcon size={props.size} icon={faSpinner}></FontAwesomeIcon>
             </p>
         </div>
     )

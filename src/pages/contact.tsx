@@ -51,7 +51,6 @@ const Contact:React.FC = ():React.ReactElement => {
     const validate:Function = () => {
         let validation: formValidationResult;
         const fillTime = Date.now() - timeStamp
-        console.log(topic);
         if(!wantToSubmitemail){
             validation = formHandler.validate({
                 headline: header, 
@@ -98,7 +97,7 @@ const Contact:React.FC = ():React.ReactElement => {
             <NavMenu header="Contact" innerHeader="Pages" navLinks={getAddresses(1)}></NavMenu>
             <CookieBanner></CookieBanner>
 
-            <div className="container bg-opacity-75 py-5 col-12 col-lg-6 col-xl-4">
+            <div className="container bg-opacity-75 py-5 col-12 col-lg-6 col-xl-4 pb-0">
                 <TextSection
                     text="Send me questions, job offerings or just general feedback."
                     header="Contact form"
@@ -142,12 +141,11 @@ const Contact:React.FC = ():React.ReactElement => {
                             {/* select topic */}
                             <div className="mb-3">
                                 <label htmlFor="topic" className="form-label">Topic</label>
-                                <select onChange={(event) => setTopic(event.target.value)} className="form-select col-12" id="topic" required>
-                                    <option defaultValue={null}>{formHandler.placeHolders.topic}</option>
+                                <select onChange={(event) => setTopic(event.target.value)} className="form-select col-12 text-secondary" id="topic" required>
+                                    <option className="text-info" defaultValue={null}>{formHandler.placeHolders.topic}</option>
                                     {
-                                        // TODO option on click not working in all browsers change logic to something else
                                         formHandler.getTopics().map((topic) => {
-                                            return <option key={topic} value={formHandler.getTopics().indexOf(topic)}>{topic}</option>
+                                            return <option className="text-secondary" key={topic} value={formHandler.getTopics().indexOf(topic)}>{topic}</option>
                                         })
                                     }
                                 </select>
@@ -215,7 +213,7 @@ const Contact:React.FC = ():React.ReactElement => {
                             }
                             {/* Submit button */
                             !postingForm ?
-                                <div className="row mb-3">
+                                <div className="row mb-3 pb-5">
                                     <div className="col-4"></div>
                                     <div className="col-4"></div>
                                     <div className="col-4">
@@ -230,9 +228,10 @@ const Contact:React.FC = ():React.ReactElement => {
                 </div>
 
 
-                <BrianBot></BrianBot>
-                <Footer></Footer>
             </div>
+            <BrianBot></BrianBot>
+            <div className="container"><Footer></Footer></div>
+            
         </div>
     )
     
