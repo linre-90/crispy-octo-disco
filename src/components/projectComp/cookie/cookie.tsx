@@ -26,17 +26,17 @@ export const CookieBanner:FC = ():ReactElement => {
         <div>
             {shouldRender &&
             
-            <div className="bg-secondary border border-secondary p-4 fixed-top">
+            <div className="bg-info p-4 fixed-top">
 
-                <div className="container">
+                <div className="container border border-start-0 border-bottom-0 p-2">
                     <div className="row">
                         <div className="col-1"></div>
-                        <div className="col-10">
-                            <h1 className="text-warning">Cookies</h1>
-                            <p className="text-warning">
-                                No unnescessary cookies for you! Check our <Link type="btn" className="btn btn-outline-warning btn-sm" to="/privacypolicy" >privacy policy</Link>     
+                        <div className="col-10 border-start">
+                            <h1 className="text-secondary">Cookies</h1>
+                            <p className="text-secondary">
+                                No unnescessary cookies for you! Check our <Link type="btn" className="btn btn-outline-danger btn-sm" to="/privacypolicy" >privacy policy</Link>     
                             </p>
-                            <button onClick={() => acceptCookie()} type="button" className="btn btn-primary btn-lg">I accept</button>        
+                            <button onClick={() => acceptCookie()} type="button" className="btn btn-danger btn-lg"><b className="text-primary">I accept</b></button>        
                         </div>
                         <div className="col-1"></div>
                     </div>
