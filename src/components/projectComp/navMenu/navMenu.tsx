@@ -81,7 +81,7 @@ const NavMenu: React.FC<navMenuProps> = (props: navMenuProps): ReactElement => {
         <nav className="navbar navbar-expand-xl navbar-ligth d-none d-xl-block">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
-                    <StaticImage src="../../../images/icon.png" width={50} height={50} alt="Main Logo" className="d-inline-block align-text-top"></StaticImage>
+                    <StaticImage src="../../../images/icon.png" width={50} height={50} quality={100} alt="Main Logo" className="d-inline-block align-text-top"></StaticImage>
                 </Link>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav ms-auto">

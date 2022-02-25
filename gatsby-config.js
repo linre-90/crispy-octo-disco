@@ -14,7 +14,29 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     `gatsby-transformer-sharp`,
-    
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `JL portfolio`,
+        short_name: `JL`,
+        start_url: `/`,
+        background_color: `#3D3B8E`,
+        theme_color: `#3D3B8E`,
+        display: `standalone`,
+        icon: `${__dirname}/src/images/icon.png`,
+        cache_busting_mode: 'none'
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        precachePages: [`/portfolio/*`, "/info", "/privacypolicy", "/", "/contact"],
+        workboxConfig: {
+          globPatterns: ['**/${__dirname}/src/images/icon.png*']
+        }
+      }
+    },
+   
     {
       resolve: `gatsby-transformer-remark`,
       options:{
