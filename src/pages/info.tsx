@@ -31,7 +31,6 @@ const Info:React.FC = ():React.ReactElement => {
                 trigger: element.querySelector("#box0"),
                 start: "top center",
                 end: "bottom top",
-                markers: true
             }
         });
 
@@ -42,7 +41,6 @@ const Info:React.FC = ():React.ReactElement => {
                 trigger: element.querySelector("#box1"),
                 start: "top center",
                 end: "bottom top",
-                markers: true
                 
             }
         });
@@ -54,7 +52,6 @@ const Info:React.FC = ():React.ReactElement => {
                 trigger: element.querySelector("#box2"),
                 start: "top center",
                 end: "bottom top",
-                markers: true
             }
         });
     },[])
