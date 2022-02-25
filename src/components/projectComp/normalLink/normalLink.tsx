@@ -7,6 +7,6 @@ type normalProp = {
 
 export const NormalLink:FC<normalProp> = (props):ReactElement => {
     return (
-        <p>- <a className="text-info" href={props.url}>{props.text}</a> -</p>
+        <p>- <a className="text-secondary" href={props.url}>{props.text}</a> -</p>
     )
 }
