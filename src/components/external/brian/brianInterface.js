@@ -10,7 +10,7 @@ const BrianInterface = (props) => {
             <input
                 className="form-control border-bottom-0 border-start-0 rounded-0"
                 default=""
-                onKeyDown={(e) => {
+                onKeyUp={(e) => {
                     if (e.key === "Enter" && props.suggestionList.length > 0) {
                         const question = {
                             name: e.target.value,
