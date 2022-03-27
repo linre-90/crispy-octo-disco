@@ -46,3 +46,5 @@ src/images/*
 src/creators
 src/markdown/*
 src/data/*
+firebase.json
+.firebaserc
