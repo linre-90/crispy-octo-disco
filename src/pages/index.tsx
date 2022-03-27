@@ -24,6 +24,7 @@ const IndexPage: React.FC = (): React.ReactElement => {
 				textSection {
 					header
 					text
+					text2
 				}
 				cta
 			}
@@ -39,16 +40,23 @@ const IndexPage: React.FC = (): React.ReactElement => {
 				{/* bootstrap javascript and popper */}
 				<Helmet>
 					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossOrigin="anonymous"></script>
+					<title>JL - Portfolio</title>
+					<meta 
+						name="description" 
+						content="Welcome to Juho Lindemark's portfolio page. This site presents my work on software development. I'am a beginner or junior developer starting out my journey on programming journey."
+					/>
 				</Helmet>
 				<div className="row">
 					<FrontPageSpecial words={ pageTexts.mainpageJson.mainhead }></FrontPageSpecial>
 				</div>
+
 				<TextSection 
 					header={ pageTexts.mainpageJson.textSection.header }
 					text={ pageTexts.mainpageJson.textSection.text }
 					headerSize={2}
 					>
-					<Cta text={ pageTexts.mainpageJson.cta } url="/portfolio"></Cta>
+						<p>{pageTexts.mainpageJson.textSection.text2}</p>
+						<Cta text={ pageTexts.mainpageJson.cta } url="/portfolio"></Cta>
 				</TextSection>
 				<BrianBot></BrianBot>
 				<Footer></Footer>

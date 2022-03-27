@@ -6,7 +6,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
-    title: "My-portfolio",
+    title: "JL-Portfolio",
   },
   plugins: [
     
@@ -49,6 +49,17 @@ module.exports = {
         name: `markdownPortfolio`,
         path: `${__dirname}/src/markdown`,
       },
+    },
+    {
+      resolve: "gatsby-plugin-sitemap"
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options:{
+        host: 'https://portfolio-linre.web.app/',
+        sitemap: 'https://portfolio-linre.web.app/sitemap.xml',
+        policy: [{userAgent: '*', allow: '/'}]
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,

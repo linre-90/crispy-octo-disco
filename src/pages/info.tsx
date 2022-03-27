@@ -10,6 +10,7 @@ import { CookieBanner } from "../components/projectComp/cookie/cookie";
 import {CommonSpecialHeadline} from "../components/projectComp/headline/commonSpecialHeader";
 import {Spacer} from "../components/projectComp/spacer/spacer";
 import { graphql, useStaticQuery } from "gatsby";
+import { Helmet } from "react-helmet";
 
 
 /**
@@ -40,7 +41,6 @@ const Info:React.FC = ():React.ReactElement => {
           }
       }
     `);
-      console.log(infoTexts);
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -82,6 +82,14 @@ const Info:React.FC = ():React.ReactElement => {
 
     return (
         <div ref={infoPageAnimationRef}>
+            <Helmet>
+                <title>JL - Portfolio info</title>
+                <meta 
+                    name="description" 
+                    content="This page tell's you little bit of my self. Who i'am, interest and education."
+                />
+            </Helmet>
+
             <CookieBanner></CookieBanner>
 
             <NavMenu header="Info" innerHeader="Info" navLinks={getAddresses(2)}></NavMenu>

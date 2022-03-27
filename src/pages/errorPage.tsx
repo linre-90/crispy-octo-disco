@@ -3,6 +3,7 @@ import { FC, ReactElement } from "react";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CookieBanner } from "../components/projectComp/cookie/cookie";
+import { Helmet } from "react-helmet";
 
 
 
@@ -26,6 +27,14 @@ const ErrorPage:FC = ():ReactElement => {
 
     return(
         <div className="container text-center mt-5">
+            <Helmet>
+                <title>JL - Portfolio something went wrong</title>
+                <meta 
+                    name="description" 
+                    content="If you receive this page something went wrong."
+                />
+            </Helmet>
+
             <CookieBanner></CookieBanner>
 
             <FontAwesomeIcon icon={faExclamationTriangle} size="10x"></FontAwesomeIcon>

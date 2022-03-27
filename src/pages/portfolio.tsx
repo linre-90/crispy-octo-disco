@@ -9,6 +9,7 @@ import {BrianBot} from "../components/external/brian/brian";
 import { CookieBanner } from "../components/projectComp/cookie/cookie";
 import {gsap} from "gsap";
 import {ScrollToPlugin} from "gsap/ScrollToPlugin";
+import { Helmet } from "react-helmet";
 
 
 /**
@@ -74,6 +75,14 @@ const Portfolio: React.FC = ({location}:any): React.ReactElement => {
 
     return (
         <div>
+            <Helmet>
+                <title>JL - Portfolio my work</title>
+                <meta 
+                    name="description" 
+                    content="Here is some of my projects. This contains web apps, desktop apps, games and everything else I think is worth sharing with you."
+                />
+            </Helmet>
+
 			<CookieBanner></CookieBanner>
 
             <NavMenu header="Portfolio" innerHeader="Pages" navLinks={getAddresses(3)}></NavMenu>

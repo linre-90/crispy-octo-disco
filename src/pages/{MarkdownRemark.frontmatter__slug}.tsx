@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import "../css/blogReader.css";
 import { useState } from "react";
 import { CookieBanner } from "../components/projectComp/cookie/cookie";
+import { Helmet } from "react-helmet";
 
 export default function Template({ data }: any): React.ReactElement {
 	const { markdownRemark } = data;
@@ -20,6 +21,16 @@ export default function Template({ data }: any): React.ReactElement {
 
 	return (
 		<div>
+			<Helmet>
+                <title>JL - Portfolio project</title>
+                <meta 
+                    name="description" 
+                    content="View of project and my short description about it. Here you should find if it is still active or not."
+                />
+            </Helmet>
+
+
+
 			<CookieBanner></CookieBanner>
 			<div className={theme} id="reader">
 				<div className={"container pt-5"}>

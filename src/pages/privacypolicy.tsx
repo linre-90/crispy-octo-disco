@@ -6,6 +6,7 @@ import {Footer} from "../components/projectComp/footer/footer";
 import {BrianBot} from "../components/external/brian/brian";
 import { CookieBanner } from "../components/projectComp/cookie/cookie";
 import {useStaticQuery, graphql} from "gatsby";
+import { Helmet } from "react-helmet";
 
 /**
  * Privacy policy page
@@ -30,6 +31,14 @@ const PrivacyPolicy = () => {
     
     return (
         <div>
+            <Helmet>
+                <title>JL - Portfolio privacy policy</title>
+                <meta 
+                    name="description" 
+                    content="JL portfolio privacy policy."
+                />
+            </Helmet>
+
             <CookieBanner></CookieBanner>
             <NavMenu header="Privacy policy" innerHeader="Privacy policy" navLinks={getAddresses(5)}></NavMenu>
             <div className="container py-5 bg-opacity-75">

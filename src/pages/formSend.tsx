@@ -4,6 +4,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {gsap} from "gsap";
 import { CookieBanner } from "../components/projectComp/cookie/cookie";
+import { Helmet } from "react-helmet";
 
 const FormSend:FC = ():ReactElement => {
     const [timer, setTimer] = useState(10);
@@ -30,7 +31,13 @@ const FormSend:FC = ():ReactElement => {
     return(
         <div className="container text-center mt-5">
             <CookieBanner></CookieBanner>
-
+            <Helmet>
+                <title>JL - Portfolio form received!</title>
+                <meta 
+                    name="description" 
+                    content="Your contact form is received!"
+                />
+            </Helmet>
             <div ref={iconRef}>
                 <FontAwesomeIcon icon={faEnvelope} size="8x"></FontAwesomeIcon>
             </div>

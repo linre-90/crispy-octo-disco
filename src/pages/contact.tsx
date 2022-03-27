@@ -9,6 +9,7 @@ import {BrianBot} from "../components/external/brian/brian";
 import {TextSection} from "../components/projectComp/textSection/textSection";
 import { CookieBanner } from "../components/projectComp/cookie/cookie";
 import {graphql, useStaticQuery} from "gatsby";
+import { Helmet } from "react-helmet";
 
 
 /**
@@ -113,6 +114,15 @@ const Contact:React.FC = ():React.ReactElement => {
  
     return (
         <div>
+
+            <Helmet>
+                <title>JL - Portfolio contact</title>
+                <meta 
+                    name="description" 
+                    content="Contact me! Send questions, job offering or just general feedback everything is appreciated!"
+                />
+            </Helmet>
+
             <NavMenu header="Contact" innerHeader="Pages" navLinks={getAddresses(1)}></NavMenu>
             <CookieBanner></CookieBanner>
 
