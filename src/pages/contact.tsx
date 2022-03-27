@@ -47,7 +47,7 @@ const Contact:React.FC = ():React.ReactElement => {
 
     const postForm:Function = async (data: any) => {
         let response = await fetch(
-            process.env.POST_FORM_URL,
+            process.env.GATSBY_POST_FORM_URL,
             {
                 method: "POST",
                 body: JSON.stringify(data),
@@ -60,7 +60,7 @@ const Contact:React.FC = ():React.ReactElement => {
             window.location.href = "/formSend";
         }
         else if(response.status == 400){ // bad form error
-            alert(`Server not accepting form. Check form and try again. If the problem continues send email to ${process.env.IN_CASE_EMERGENCY_EMAIL}.`)
+            alert(`Server not accepting form. Check form and try again. If the problem continues send email to ${process.env.GATSBY_IN_CASE_EMERGENCY_EMAIL}.`)
             setpostingForm(false);
         }
         else{

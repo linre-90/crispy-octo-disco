@@ -48,3 +48,4 @@ src/markdown/*
 src/data/*
 firebase.json
 .firebaserc
+.firebase

@@ -29,8 +29,9 @@ export const Footer:FC = ():ReactElement => {
                     <NormalLink text="Font awesome" url="https://fontawesome.com/"></NormalLink>
                 </FooterSection>
                 <FooterSection header="Social">
-                    <NormalLink text="Github" url="#"></NormalLink>
-                    <NormalLink text="Twitter" url="#"></NormalLink>
+                    <NormalLink text="Github" url="https://github.com/linre-90/crispy-octo-disco"></NormalLink>
+                    <NormalLink text="Twitter" url="https://twitter.com/90_linre"></NormalLink>
+                    <NormalLink text="LinkedIn" url="https://www.linkedin.com/in/juho-l-171a98233/"></NormalLink>
                 </FooterSection>
             </div>
 

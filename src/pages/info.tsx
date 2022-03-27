@@ -116,7 +116,7 @@ const Info:React.FC = ():React.ReactElement => {
                         flipChildOrder={true}  
                     >
                         <CommonSpecialHeadline header={ infoTexts.infoJson.box1.head }></CommonSpecialHeadline>
-                        <a className="btn btn-danger btn-lg mb-4 mt-4" href={process.env.CV_ADDRESS} ><b className="text-primary">CV can be found here</b></a>         
+                        <a className="btn btn-danger btn-lg mb-4 mt-4" href={process.env.GATSBY_CV_ADDRESS} ><b className="text-primary">CV can be found here</b></a>         
                     </TextSection>
                 </div>
 
