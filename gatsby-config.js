@@ -3,9 +3,11 @@ require("dotenv").config({
 })
 
 
+const myUrl = "https://portfolio-linre.web.app";
+
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: myUrl,
     title: "JL-Portfolio",
   },
   plugins: [
@@ -56,8 +58,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options:{
-        host: 'https://portfolio-linre.web.app/',
-        sitemap: 'https://portfolio-linre.web.app/sitemap.xml',
+        host: myUrl,
+        sitemap: myUrl+'/sitemap.xml',
         policy: [{userAgent: '*', allow: '/'}]
       }
     },
